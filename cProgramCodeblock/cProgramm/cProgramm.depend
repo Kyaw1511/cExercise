@@ -1,0 +1,156 @@
+# depslib dependency file v1.0
+1743445502 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1748502211 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test.c
+	<stdio.h>
+	<stdlib.h>
+
+1748502809 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test1.c
+	<stdio.h>
+	<stdlib.h>
+
+1748511779 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\project1.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"info.h"
+
+1748504534 d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\info.h
+
+1748512202 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test3.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"info.h"
+
+1748513857 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test4.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"info.h"
+
+1748516130 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\project3.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"info.h"
+
+1748516284 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test5.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"info.h"
+
+1748598100 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test6.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"info.h"
+
+1748599477 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test7.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"info.h"
+
+1748601707 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test8.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"info.h"
+
+1748606868 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\project4.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"info.h"
+	<conio.h>
+
+1748608687 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test9.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"info.h"
+	<conio.h>
+	<math.h>
+
+1748611721 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test11.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"info.h"
+
+1748684275 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test12.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"info.h"
+
+1748689439 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\project5.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<math.h>
+	"info.h"
+
+1748859979 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test13.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<math.h>
+	"info.h"
+
+1749025672 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test14.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<math.h>
+	"info.h"
+
+1749027317 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test15.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+	<conio.h>
+	"info.h"
+
+1749028487 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\project6.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<math.h>
+	"info.h"
+
+1749030357 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test16.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<math.h>
+	"info.h"
+
+1749031445 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test17.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<math.h>
+	"info.h"
+
+1749032011 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test18.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<math.h>
+	"info.h"
+
