@@ -9,9 +9,6 @@ int main()
 {
     char *pointer;
 
-
-
-    
     pointer = (char *) malloc(30);
     gets(pointer);
     puts(pointer);
