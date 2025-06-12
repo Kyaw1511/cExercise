@@ -24,7 +24,7 @@ int main()
     printf("%s\n", user1.name);
 
     printf("Enter your age user1\n");
-    scanf("%d", user1.age);
+    scanf("%d", &user1.age);
     printf("%d\n", user1.age);
 
     return 0;
