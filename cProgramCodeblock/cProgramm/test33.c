@@ -18,8 +18,30 @@ typedef struct information info;
 info *head;
 void adding()
 {
-    printf("This is adding function");
+    //printf("This is adding function");
+    info *p;
+    if(head == NULL)
+    {
+        head = (struct information *) malloc(sizeof(info));
+        p = head;
 
+    } else
+    {
+        p = head;
+        while(p != NULL)
+        {
+            p = p -> next;
+        }
+        p = (struct information *) malloc (sizeof(info));
+    }
+    printf("Enter your ID \n");
+    scanf("%d", &p->id);
+    printf("Enter your name \n");
+    scanf("%s", p->name);
+    printf("Enter your age \n");
+    scanf("%d", &p->age);
+
+    p -> next = NULL;
 }
 
 //menu function
