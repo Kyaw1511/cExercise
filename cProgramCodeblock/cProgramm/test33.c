@@ -46,12 +46,31 @@ void listening() {
     info * p;
     p = head;
     while (p != NULL) {
-        printf("id :: %d \n", p->id);
+        printf("\nid :: %d \n", p->id);
         printf("name :: %s \n", p->name);
         printf("Age :: %d \n\n", p->age);
 
         p = p-> next;
     }
+}
+
+// deleting
+void deleting() {
+    info *p, *d;
+    int idToDelete;
+    p = head;
+    d = head;
+    listening();
+
+    printf("Which id do you want to DELETE :\n");
+    scanf("%d", &idToDelete);
+
+    if(p -> id == idToDelete) {
+        head = p -> next;
+        free(p);
+    }
+
+
 }
 
 //menu function
@@ -69,7 +88,7 @@ void menu() {
     switch(selection) {
         case 1: adding(); menu();
         case 2: listening(); menu();
-
+        case 3: deleting(); printf("Already deleted for iD...\n"); menu();
         case 0: return ; // not including zero for return
 
         default : menu();
