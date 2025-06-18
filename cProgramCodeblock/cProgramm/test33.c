@@ -5,8 +5,7 @@
 #include <string.h>
 #include "info.h"
 
-struct information
-{
+struct information {
     char name[100];
     int id;
     int age;
@@ -14,25 +13,23 @@ struct information
     struct information *next;
 
 };
+
 typedef struct information info;
 info *head;
-void adding()
-{
+void adding() {
     //printf("This is adding function");
-    info *p;
-    if(head == NULL)
-    {
-        head = (struct information *) malloc(sizeof(info));
+    info * p;
+    if(head == NULL) {
+        head = (info *) malloc(sizeof(info));
         p = head;
 
-    } else
-    {
+    } else {
         p = head;
-        while(p != NULL)
-        {
+        while(p->next != NULL) {
             p = p -> next;
         }
-        p = (struct information *) malloc (sizeof(info));
+        p->next = (info *) malloc (sizeof(info));
+        p = p->next;
     }
     printf("Enter your ID \n");
     scanf("%d", &p->id);
@@ -44,9 +41,21 @@ void adding()
     p -> next = NULL;
 }
 
+// listening
+void listening() {
+    info * p;
+    p = head;
+    while (p != NULL) {
+        printf("id :: %d \n", p->id);
+        printf("name :: %s \n", p->name);
+        printf("Age :: %d \n\n", p->age);
+
+        p = p-> next;
+    }
+}
+
 //menu function
-void menu()
-{
+void menu() {
     int selection;
     printf("Press 1 to register your information \n");
     printf("Press 2 to list all the information \n");
@@ -57,9 +66,9 @@ void menu()
     scanf("%d", &selection);
 
     //call selection
-    switch(selection)
-    {
+    switch(selection) {
         case 1: adding(); menu();
+        case 2: listening(); menu();
 
         case 0: return ; // not including zero for return
 
@@ -67,8 +76,7 @@ void menu()
     }
 }
 
-int main()
-{
+int main() {
     head = NULL;
     menu();
 
