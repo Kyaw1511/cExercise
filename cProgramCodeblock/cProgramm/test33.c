@@ -18,7 +18,7 @@ typedef struct information info;
 info *head;
 void adding() {
     //printf("This is adding function");
-    info * p;
+    info *p;
     if(head == NULL) {
         head = (info *) malloc(sizeof(info));
         p = head;
@@ -26,7 +26,7 @@ void adding() {
     } else {
         p = head;
         while(p->next != NULL) {
-            p = p -> next;
+            p = p-> next;
         }
         p->next = (info *) malloc (sizeof(info));
         p = p->next;
@@ -43,7 +43,7 @@ void adding() {
 
 // listening
 void listening() {
-    info * p;
+    info *p;
     p = head;
     while (p != NULL) {
         printf("\nid :: %d \n", p->id);
@@ -51,7 +51,13 @@ void listening() {
         printf("Age :: %d \n\n", p->age);
 
         p = p-> next;
+
+        // additional commit after watching deleting all info;
+        /*if(p == NULL) {
+            printf("You have No ID \n\n");
+        }*/
     }
+
 }
 
 // deleting
@@ -65,9 +71,19 @@ void deleting() {
     printf("Which id do you want to DELETE :\n");
     scanf("%d", &idToDelete);
 
-    if(p -> id == idToDelete) {
-        head = p -> next;
+    if(p-> id == idToDelete) {
+        head = p-> next;
         free(p);
+    } else {
+        p = head;
+        while(p-> next != NULL) {
+                d = p;
+                p = p->next;
+            if(p -> id == idToDelete) {
+                d->next = p->next;
+                free(p);
+            }
+        }
     }
 
 
@@ -89,6 +105,7 @@ void menu() {
         case 1: adding(); menu();
         case 2: listening(); menu();
         case 3: deleting(); printf("Already deleted for iD...\n"); menu();
+
         case 0: return ; // not including zero for return
 
         default : menu();
