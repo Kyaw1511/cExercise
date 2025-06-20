@@ -85,8 +85,30 @@ void deleting() {
             }
         }
     }
+}
 
-
+// changing function
+void changing() {
+    info *p;
+    p = head;
+    int idToShow;
+    printf("Enter you ID to change \n :");
+    scanf("%d", &idToShow);
+    while(p != NULL) {
+        if(p-> id == idToShow) {
+            printf("Name :: %s \n", p-> name);
+            printf("Age :: %d\n\n", p->age);
+            printf("Enter your new name :: \n");
+            scanf("%s", &p->name);
+            printf("\n Enter your new age \n ::");
+            scanf("%d", &p->age);
+            break;
+        }
+        if(p->next == NULL ) {
+            printf("\n\n There is no %d iD in the list \n\n");
+        }
+        p = p->next;
+    }
 }
 
 //menu function
@@ -105,6 +127,7 @@ void menu() {
         case 1: adding(); menu();
         case 2: listening(); menu();
         case 3: deleting(); printf("Already deleted for iD...\n"); menu();
+        case 4: changing(); printf("Already changing for data.>>> \n"); menu();
 
         case 0: return ; // not including zero for return
 
