@@ -5,6 +5,8 @@
 #include <string.h>
 #include "info.h"
 
+void menu(); // firstly to declare
+
 struct information {
     char name[100];
     int id;
@@ -110,6 +112,44 @@ void changing() {
         p = p->next;
     }
 }
+// changing value
+void changingValue() {
+    info *p, *h;
+    int temp, firstId, secId;
+    char nameTemp[50];
+    printf("Enter first ID to change the info \n::");
+    scanf("%d", &firstId);
+    printf("Enter second ID to change the info \n::");
+    scanf("%d", &secId);
+
+    p = head;
+    h = head;
+    while (p->next != NULL) {
+        if (p->id == firstId) {
+            break;
+        } else if (p->next == NULL) {
+            printf("There is no %d ID in the list \n\n", firstId);
+            menu();
+        }
+        p = p->next;
+    }
+    while (h->next != NULL) {
+        if (h->id == secId) {
+            break;
+        } else if (h->next == NULL) {
+            printf("There is no %d in the list \n\n", secId);
+            menu();
+        }
+        h = h->next;
+    }
+    strcpy(nameTemp, p->name);
+    strcpy(p->name, h->name);
+    strcpy(h->name, nameTemp);
+    temp = p->age;
+    p->age = h->age;
+    h->age = temp;
+    printf("The place have been changed \n\n");
+}
 
 //menu function
 void menu() {
@@ -117,7 +157,8 @@ void menu() {
     printf("Press 1 to register your information \n");
     printf("Press 2 to list all the information \n");
     printf("Press 3 to delete your info \n");
-    printf("Press 4 to change your info in the other place \n");
+    printf("Press 4 to change your info\n");
+    printf("Press 5 to change your info in the other place \n");
     printf("Press 0 to exit \n");
 
     scanf("%d", &selection);
@@ -128,8 +169,9 @@ void menu() {
         case 2: listening(); menu();
         case 3: deleting(); printf("Already deleted for iD...\n"); menu();
         case 4: changing(); printf("Already changing for data.>>> \n"); menu();
+        case 5: changingValue(); menu();
 
-        case 0: return ; // not including zero for return
+        case 0: return; // not including zero for return
 
         default : menu();
     }
