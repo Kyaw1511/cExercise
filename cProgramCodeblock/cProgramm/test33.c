@@ -165,11 +165,11 @@ void menu() {
 
     //call selection
     switch(selection) {
-        case 1: adding(); menu();
-        case 2: listening(); menu();
-        case 3: deleting(); printf("Already deleted for iD...\n"); menu();
-        case 4: changing(); printf("Already changing for data.>>> \n"); menu();
-        case 5: changingValue(); menu();
+        case 1: adding(); menu(); return;
+        case 2: listening(); menu(); return;
+        case 3: deleting(); printf("Already deleted for iD...\n"); menu(); return;
+        case 4: changing(); printf("Already changing for data.>>> \n"); menu(); return;
+        case 5: changingValue(); menu(); return;
 
         case 0: return; // not including zero for return
 
