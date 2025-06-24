@@ -1,7 +1,1 @@
-Hello guys
-
-This is a testing ....
-
-This is writing testing 
-
-name >> kyawMinThein
+kyaw min thein
