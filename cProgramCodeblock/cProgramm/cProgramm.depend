@@ -258,11 +258,19 @@
 	<string.h>
 	"info.h"
 
-1750782505 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test34.c
+1750782808 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test34.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<math.h>
 	<conio.h>
+	"info.h"
+
+1751011044 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test35.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<conio.h>
+	<string.h>
 	"info.h"
 
