@@ -31,10 +31,21 @@ int main() {
         printf("name :: %s \n iD :: %d \n Balance ::%d \n\n", infoMaker1.name, &infoMaker1.id, &infoMaker1.balance);
 
         fread(&infoMaker1, sizeof(infoMaker1), 1, kmt);
-
     }
 
+
     //fread(&infoMaker1, sizeof(infoMaker1), 1,kmt);
+
+    //testing
+        /*printf("Name >> \n");
+        gets(infoMaker1.name);
+        printf("ID >> \n");
+        scanf("%d", &infoMaker1.id);
+        printf("Balance >>> \n");
+        scanf("%d", &infoMaker1.balance);
+
+        fwrite(&infoMaker1, sizeof(infoMaker1), 1, kmt);
+        */
 
     fclose(kmt);
 
