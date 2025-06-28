@@ -32,7 +32,7 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="info.h" />
-		<Unit filename="test39.c">
+		<Unit filename="test41.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions />
