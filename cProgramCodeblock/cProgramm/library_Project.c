@@ -13,8 +13,16 @@
 FILE*passw;
 FILE*logInSession;
 
+// function prototype as global declaration function
+void adding();
+void removing();
+void checking();
+void logIn();
+void welcomeNow();
 
-// structure of default admin;
+
+
+// structure of default admin;g
 struct defaultAdmin{
     char adminName[50];
     char adminpass[50];
@@ -101,6 +109,8 @@ void password() {
             fclose(logInSession);
             getch();
             system("cls"); // clean the system;
+            welcomeNow();
+            return ;
 
         } else{
             Sleep(1000);
@@ -108,10 +118,163 @@ void password() {
             getch();
             system("cls");
 
-            return ;
+            return ; // return main() is not working;
         }
 
 }
+
+// welcoming now;
+void welcomeNow() {
+    char welcome[100] = "Welcome to Library Program";
+    int i;
+    unsigned int d = 100;
+    printf("\t\t\t\t\t");
+    for(i=0; i<strlen(welcome); i++) {
+        Sleep(0);
+        printf("%c", welcome[i]);
+
+    }
+    time_t rawtime;
+    struct tm*timeinfo;
+
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+    Sleep(0);
+    printf("\n\t\t\tCurrent local time and date :: %s", asctime(timeinfo));
+    printf("\n\n\n");
+}
+
+// menu function
+void menu() {
+    int selection;
+    char check;
+
+    printf("\t\t\t\t1.Add Book to List \n");
+    Sleep(200);
+    printf("\t\t\t\t2.Remove Book from List\n");
+    Sleep(200);
+    printf("\t\t\t\t3.Check Book List\n");
+    Sleep(200);
+    printf("\t\t\t\t4.Change LogIn info\n");
+    Sleep(200);
+    printf("\t\t\t\t0.Exit\n\n\t\t\t\t");
+    Sleep(200);
+    scanf("%d", &selection);
+
+    switch(selection) {
+
+        // run case 1;
+        case 1: adding();
+            while(1) { // loop infinite.
+                system("cls");
+                welcomeNow();
+                printf("\n\n\t\t\tDo you want to continue here (Y/N)\t:: ");
+                scanf("%s", &check);
+
+                if(check == 'Y' || check == 'y') {
+                    adding();
+                } else {
+                    system("cls");
+                    welcomeNow();
+                    menu();
+                }
+                }
+            break;
+
+        // Run case 2;
+        case 2: removing();
+            while(1) {
+                system("cls");
+                welcomeNow();
+                printf("\n\n\t\t\t\tDo you want to continue here (Y/N)\t ::");
+                scanf("%s", &check);
+
+                if(check == 'Y' || check == 'y') {
+                    removing();
+
+                } else {
+                    system("cls");
+                    welcomeNow();
+                    menu();
+                }
+            }
+            break;
+
+        // case 3checking()
+        case 3: checking();
+            while(1) {
+                system("cls");
+                welcomeNow();
+                printf("\n\n\t\t\t\tDo you want to continue here (Y/N)\t ::");
+                scanf("%s", &check);
+
+                if(check == 'Y' || check == 'y') {
+                    removing();
+
+                } else {
+                    system("cls");
+                    welcomeNow();
+                    menu();
+                }
+            }
+            break;
+
+        //case 4 login()
+        case 4: logIn();
+            while(1) {
+                system("cls");
+                welcomeNow();
+                printf("\n\n\t\t\t\tDo you want to continue here (Y/N)\t ::");
+                scanf("%s", &check);
+
+                if(check == 'Y' || check == 'y') {
+                    removing();
+
+                } else {
+                    system("cls");
+                    welcomeNow();
+                    menu();
+                }
+            }
+            break;
+
+        // case0;
+        case 0: system("cls");
+            printf("\t\t\tSee you soon.... \n\n\n\t\t\t Written by Kyaw Min Thein \n\n");
+            printf("\t\t\t Credit to Programming MM School \n\n\n\n");
+            getch();
+            exit(0); // system exit.
+            break;
+
+        default : system("cls");
+            welcomeNow();
+            menu();
+            break;
+    }
+    getch(); // not necessary ...
+
+}
+
+// menu adding
+void adding() {
+    printf("test");
+}
+
+// menu remove
+void removing() {
+    printf("test");
+}
+
+// menu checking
+void checking() {
+    printf("test");
+}
+
+// menu login
+void logIn() {
+    printf("test");
+}
+
 
 // main function
 int main() {
@@ -121,6 +284,7 @@ int main() {
 
     // for password;
     password();
+    welcomeNow();
 
     return 0;
 
