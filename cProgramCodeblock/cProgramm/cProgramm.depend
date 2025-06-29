@@ -314,3 +314,15 @@
 	<math.h>
 	"info.h"
 
+1751196278 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\library_project.c
+	<stdio.h>
+	<string.h>
+	<math.h>
+	<conio.h>
+	<stdlib.h>
+	"info.h"
+	<ctype.h>
+	<dos.h>
+	<time.h>
+	<windows.h>
+
