@@ -292,10 +292,12 @@ void adding() {
             system("cls"); //not to show anything on screen.
             welcomeNow();
             printf("\n\n\n\t\t\t\tEnter Student First Name >>> ");
-            gets(bookDoc.lastName);
-            printf("\t\t\t\tEnter Student Last Name ::");
-            gets(bookDoc.lastName);
-            printf("\t\t\t\tEnter Book Name :: ");
+            //gets(bookDoc.firstName);
+            fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
+            printf("\t\t\t\tEnter Student Last Name ::\n");
+            //gets(bookDoc.lastName);
+            fgets(bookDoc.lastName,sizeof(bookDoc.lastName), stdin);
+            printf("\t\t\t\tEnter Book Name :: \n");
             scanf("%s", bookDoc.bookName);
             printf("\t\t\t\tEnter Student ID :: ");
             scanf("%d", &bookDoc.studentId);
