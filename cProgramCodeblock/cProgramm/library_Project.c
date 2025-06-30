@@ -12,6 +12,26 @@
 // Global Variables
 FILE*passw;
 FILE*logInSession;
+FILE*programming;
+FILE*maths;
+FILE*english;
+
+//structure for book;
+struct book {
+    char firstName[100];
+    char lastName[100];
+    int studentId;
+    int startDay;
+    int startMonth;
+    int startYear;
+    int endDay;
+    int endMonth;
+    int endYear;
+    char bookName[100];
+
+};
+
+struct book bookDoc; // for reading and writing.
 
 // function prototype as global declaration function
 void adding();
@@ -19,6 +39,7 @@ void removing();
 void checking();
 void logIn();
 void welcomeNow();
+void category();
 
 
 
@@ -257,7 +278,44 @@ void menu() {
 
 // menu adding
 void adding() {
-    printf("test");
+
+    system("cls");
+    welcomeNow();
+    int selection;
+    char check;
+    category();
+    scanf("%d", &selection);
+
+    switch(selection) {
+        //programming selection;
+        case 1:
+            system("cls"); //not to show anything on screen.
+            welcomeNow();
+            printf("\n\n\n\t\t\t\tEnter Student First Name >>> ");
+            gets(bookDoc.lastName);
+            printf("\t\t\t\tEnter Student Last Name ::");
+            gets(bookDoc.lastName);
+            printf("\t\t\t\tEnter Book Name :: ");
+            scanf("%s", bookDoc.bookName);
+            printf("\t\t\t\tEnter Student ID :: ");
+            scanf("%d", &bookDoc.studentId);
+            printf("\t\t\t\tEnter the Start Date(DD--MM--YY) :: ");
+            scanf("%d--%d--%d", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
+            printf("\t\t\t\tEnter the End Date(DD--MM--YY) ::");
+            scanf("%d--%d--%d", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
+            programming = fopen("programming.txt", "a+");
+            fwrite(&bookDoc, sizeof(bookDoc), 1, programming);
+            fclose(programming);
+            Sleep(1000);
+            printf("\n\n\n\t\t\t\tThe Book info have been saved successfully .......");
+            getch();
+            system("cls");
+            welcomeNow();
+
+            break;
+
+    }
+    //printf("test");
 }
 
 // menu remove
@@ -275,6 +333,16 @@ void logIn() {
     printf("test");
 }
 
+// category function
+void category() {
+    printf("\n\n\n\t\t\t\t1.Programming\n");
+    printf("\t\t\t\t2.Maths\n");
+    printf("\t\t\t\t3.English\n");
+    printf("\t\t\t\t4.Physics\n");
+    printf("\t\t\t\t5.Chemistry\n");
+    printf("\t\t\t\t6.Biology\n");
+    printf("\t\t\t\t0.Go to Back\n\n\t\t\t >>>");
+}
 
 // main function
 int main() {
