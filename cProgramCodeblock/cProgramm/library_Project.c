@@ -178,7 +178,7 @@ void menu() {
                     welcomeNow();
                     menu();
                 }
-                }
+            }
             break;
 
         // Run case 2;
@@ -209,7 +209,7 @@ void menu() {
                 scanf("%s", &check);
 
                 if(check == 'Y' || check == 'y') {
-                    removing();
+                    checking();
 
                 } else {
                     system("cls");
@@ -228,7 +228,7 @@ void menu() {
                 scanf("%s", &check);
 
                 if(check == 'Y' || check == 'y') {
-                    removing();
+                    logIn();
 
                 } else {
                     system("cls");
@@ -284,7 +284,8 @@ int main() {
 
     // for password;
     password();
-    welcomeNow();
+    //welcomeNow();
+    menu();
 
     return 0;
 
