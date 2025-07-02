@@ -291,15 +291,16 @@ void adding() {
         case 1:
             system("cls"); //not to show anything on screen.
             welcomeNow();
-            printf("\n\n\n\t\t\t\tEnter Student First Name >>> ");
-            fflush(stdout); // make sure prompt appears before input.
+            //while((c = getch()) != '\n' && c != EOF){} //flash stdin manually
+            puts("\n\n\n\t\t\t\tEnter Student First Name >>> \n");
+            //fflush(stdout); // make sure prompt appears before input.
             //scanf("%s", bookDoc.firstName);
             //gets(bookDoc.firstName);
             fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
             bookDoc.firstName[strcspn(bookDoc.firstName, "\n")] = '\0';
 
-            printf("\n\t\t\t\tEnter Student Last Name :: ");
-            fflush(stdout);
+            puts("\t\t\t\tEnter Student Last Name :: ");
+            //fflush(stdout);
             //scanf("%s", bookDoc.lastName);
             //gets(bookDoc.lastName);
             fgets(bookDoc.lastName,sizeof(bookDoc.lastName), stdin);
