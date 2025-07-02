@@ -292,12 +292,20 @@ void adding() {
             system("cls"); //not to show anything on screen.
             welcomeNow();
             printf("\n\n\n\t\t\t\tEnter Student First Name >>> ");
+            fflush(stdout); // make sure prompt appears before input.
+            //scanf("%s", bookDoc.firstName);
             //gets(bookDoc.firstName);
             fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
-            printf("\t\t\t\tEnter Student Last Name ::\n");
+            bookDoc.firstName[strcspn(bookDoc.firstName, "\n")] = '\0';
+
+            printf("\n\t\t\t\tEnter Student Last Name :: ");
+            fflush(stdout);
+            //scanf("%s", bookDoc.lastName);
             //gets(bookDoc.lastName);
             fgets(bookDoc.lastName,sizeof(bookDoc.lastName), stdin);
-            printf("\t\t\t\tEnter Book Name :: \n");
+            bookDoc.lastName[strcspn(bookDoc.lastName, "\n")] = '\0';
+
+            printf("\t\t\t\tEnter Book Name :: ");
             scanf("%s", bookDoc.bookName);
             printf("\t\t\t\tEnter Student ID :: ");
             scanf("%d", &bookDoc.studentId);
