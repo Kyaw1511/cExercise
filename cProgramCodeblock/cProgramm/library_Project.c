@@ -20,6 +20,8 @@ FILE*english;
 struct book {
     char firstName[100];
     char lastName[100];
+    char fullName[200];
+    char bookName[100];
     int studentId;
     int startDay;
     int startMonth;
@@ -27,7 +29,7 @@ struct book {
     int endDay;
     int endMonth;
     int endYear;
-    char bookName[100];
+    //char bookName[100];
 
 };
 
@@ -276,6 +278,12 @@ void menu() {
 
 }
 
+
+// avoid for goes to last name cursor;
+void clearInputBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
 // menu adding
 void adding() {
 
@@ -292,22 +300,30 @@ void adding() {
             system("cls"); //not to show anything on screen.
             welcomeNow();
             //while((c = getch()) != '\n' && c != EOF){} //flash stdin manually
-            puts("\n\n\n\t\t\t\tEnter Student First Name >>> \n");
+            printf("\n\n\n\t\t\t\tEnter Student First Name >>> \n");
             //fflush(stdout); // make sure prompt appears before input.
             //scanf("%s", bookDoc.firstName);
             //gets(bookDoc.firstName);
             fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
-            bookDoc.firstName[strcspn(bookDoc.firstName, "\n")] = '\0';
+            bookDoc.firstName[strcspn(bookDoc.firstName, "\n")] = 0;
+            //printf("\nYour first Name is %s", bookDoc.firstName);
 
             puts("\t\t\t\tEnter Student Last Name :: ");
             //fflush(stdout);
             //scanf("%s", bookDoc.lastName);
             //gets(bookDoc.lastName);
             fgets(bookDoc.lastName,sizeof(bookDoc.lastName), stdin);
-            bookDoc.lastName[strcspn(bookDoc.lastName, "\n")] = '\0';
+            bookDoc.lastName[strcspn(bookDoc.lastName, "\n")] = 0;
+            //printf("\nYour last name is %s >>", bookDoc.lastName);
 
-            printf("\t\t\t\tEnter Book Name :: ");
+            // testing;
+            //printf("\t\t\tEnter your Full Name :: ");
+            //fgets(bookDoc.fullName, sizeof(bookDoc.fullName), stdin);
+
+
+            printf("\n\t\t\t\tEnter Book Name :: ");
             scanf("%s", bookDoc.bookName);
+            clearInputBuffer();
             printf("\t\t\t\tEnter Student ID :: ");
             scanf("%d", &bookDoc.studentId);
             printf("\t\t\t\tEnter the Start Date(DD--MM--YY) :: ");
@@ -322,6 +338,7 @@ void adding() {
             getch();
             system("cls");
             welcomeNow();
+            //clearInputBuffer();
 
             break;
 
