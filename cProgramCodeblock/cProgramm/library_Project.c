@@ -323,7 +323,7 @@ void adding() {
 
             printf("\n\t\t\t\tEnter Book Name :: ");
             scanf("%s", bookDoc.bookName);
-            clearInputBuffer();
+            //nclearInputBuffer();
             printf("\t\t\t\tEnter Student ID :: ");
             scanf("%d", &bookDoc.studentId);
             printf("\t\t\t\tEnter the Start Date(DD--MM--YY) :: ");
