@@ -20,7 +20,7 @@ FILE*english;
 struct book {
     char firstName[100];
     char lastName[100];
-    char fullName[200];
+    char fullName[301];
     char bookName[100];
     int studentId;
     int startDay;
@@ -300,7 +300,7 @@ void adding() {
             system("cls"); //not to show anything on screen.
             welcomeNow();
             //while((c = getch()) != '\n' && c != EOF){} //flash stdin manually
-            printf("\n\n\n\t\t\t\tEnter Student First Name >>> \n");
+            printf("\n\n\n\t\t\t\tEnter Student First Name :: ");
             //fflush(stdout); // make sure prompt appears before input.
             //scanf("%s", bookDoc.firstName);
             //gets(bookDoc.firstName);
@@ -308,7 +308,9 @@ void adding() {
             bookDoc.firstName[strcspn(bookDoc.firstName, "\n")] = 0;
             //printf("\nYour first Name is %s", bookDoc.firstName);
 
-            puts("\t\t\t\tEnter Student Last Name :: ");
+            clearInputBuffer(); // if using two times of fgest should use before finishing one fgets....
+
+            printf("\n\t\t\t\tEnter Student Last Name :: ");
             //fflush(stdout);
             //scanf("%s", bookDoc.lastName);
             //gets(bookDoc.lastName);
@@ -319,6 +321,11 @@ void adding() {
             // testing;
             //printf("\t\t\tEnter your Full Name :: ");
             //fgets(bookDoc.fullName, sizeof(bookDoc.fullName), stdin);
+
+            strcat(bookDoc.fullName, bookDoc.firstName);
+            strcat(bookDoc.fullName, " ");
+            strcat(bookDoc.fullName, bookDoc.lastName);
+            printf("\n your full name is %s\n", bookDoc.fullName);
 
 
             printf("\n\t\t\t\tEnter Book Name :: ");
