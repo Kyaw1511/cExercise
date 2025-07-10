@@ -258,7 +258,8 @@
 	<string.h>
 	"info.h"
 
-<<<<<<< HEAD
+1750676998 D
+
 1751011195 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test34.c
 	<stdio.h>
 	<stdlib.h>
@@ -315,7 +316,7 @@
 	<math.h>
 	"info.h"
 
-1751450258 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\library_project.c
+1752161416 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\library_project.c
 	<stdio.h>
 	<string.h>
 	<math.h>
@@ -329,9 +330,12 @@
 
 1752137983 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test43.c
 	<stdint-gcc.h>
-=======
+
+1752137983 c.h>
+
 1752159895 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test44.c
->>>>>>> prototype_1
+
+1752159895 totype_1
 	<stdio.h>
 	<string.h>
 
