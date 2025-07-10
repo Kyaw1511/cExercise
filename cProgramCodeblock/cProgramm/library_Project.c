@@ -322,9 +322,10 @@ void adding() {
             //printf("\t\t\tEnter your Full Name :: ");
             //fgets(bookDoc.fullName, sizeof(bookDoc.fullName), stdin);
 
-            strcat(bookDoc.fullName, bookDoc.firstName);
-            strcat(bookDoc.fullName, " ");
-            strcat(bookDoc.fullName, bookDoc.lastName);
+            //strcpy(bookDoc.fullName, bookDoc.firstName);
+            //strcat(bookDoc.fullName, " ");
+            //strcat(bookDoc.fullName, bookDoc.lastName);
+            snprintf(bookDoc.fullName, sizeof(bookDoc.fullName), "%s %s", bookDoc.firstName, bookDoc.lastName);
             printf("\n your full name is %s\n", bookDoc.fullName);
 
 
