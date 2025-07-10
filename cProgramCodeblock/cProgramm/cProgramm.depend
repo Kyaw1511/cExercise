@@ -258,6 +258,7 @@
 	<string.h>
 	"info.h"
 
+<<<<<<< HEAD
 1751011195 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test34.c
 	<stdio.h>
 	<stdlib.h>
@@ -328,6 +329,9 @@
 
 1752137983 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test43.c
 	<stdint-gcc.h>
+=======
+1752159895 source:d:\kyaw1511@k.theo\cprogramcodeblock\cprogramm\test44.c
+>>>>>>> prototype_1
 	<stdio.h>
 	<string.h>
 
