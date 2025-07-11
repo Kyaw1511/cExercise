@@ -301,20 +301,34 @@ void adding() {
             welcomeNow();
             //while((c = getch()) != '\n' && c != EOF){} //flash stdin manually
             printf("\n\n\n\t\t\t\tEnter Student First Name :: ");
+            /*if (fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin) == NULL ) {
+                perror("Error reading first name ! ");
+
+                return ;
+            }*/
+
             //fflush(stdout); // make sure prompt appears before input.
             //scanf("%s", bookDoc.firstName);
             //gets(bookDoc.firstName);
-            fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
+            //fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
             bookDoc.firstName[strcspn(bookDoc.firstName, "\n")] = 0;
             //printf("\nYour first Name is %s", bookDoc.firstName);
 
             clearInputBuffer(); // if using two times of fgest should use before finishing one fgets....
 
             printf("\n\t\t\t\tEnter Student Last Name :: ");
+
+            /*if (fgets(bookDoc.lastName, sizeof(bookDoc.lastName), stdin) == NULL ) {
+                perror("Error reading Last name !");
+
+                return ;
+            }
+            */
+
             //fflush(stdout);
             //scanf("%s", bookDoc.lastName);
             //gets(bookDoc.lastName);
-            fgets(bookDoc.lastName,sizeof(bookDoc.lastName), stdin);
+            //fgets(bookDoc.lastName,sizeof(bookDoc.lastName), stdin);
             bookDoc.lastName[strcspn(bookDoc.lastName, "\n")] = 0;
             //printf("\nYour last name is %s >>", bookDoc.lastName);
 
@@ -325,11 +339,11 @@ void adding() {
             printf("Debug: first name = %s \n", bookDoc.firstName);
             printf("Debug: second name = %s \n", bookDoc.lastName);
 
-            //strcpy(bookDoc.fullName, bookDoc.firstName);
-            //strcat(bookDoc.fullName, " ");
-            //strcat(bookDoc.fullName, bookDoc.lastName);
+            strcpy(bookDoc.fullName, bookDoc.firstName);
+            strcat(bookDoc.fullName, " ");
+            strcat(bookDoc.fullName, bookDoc.lastName);
             //snprintf(bookDoc.fullName, sizeof(bookDoc.fullName), "%s %s", bookDoc.firstName, bookDoc.lastName);
-            //printf("\n your full name is %s\n", bookDoc.fullName);
+            printf("\n your full name is %s\n", bookDoc.fullName);
 
 
             printf("\n\t\t\t\tEnter Book Name :: ");
