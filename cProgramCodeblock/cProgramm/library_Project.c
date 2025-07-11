@@ -294,6 +294,9 @@ void adding() {
     category();
     scanf("%d", &selection);
 
+    // after fixing here
+    clearInputBuffer();
+
     switch(selection) {
         //programming selection;
         case 1:
@@ -310,11 +313,11 @@ void adding() {
             //fflush(stdout); // make sure prompt appears before input.
             //scanf("%s", bookDoc.firstName);
             //gets(bookDoc.firstName);
-            //fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
+            fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
             bookDoc.firstName[strcspn(bookDoc.firstName, "\n")] = 0;
             //printf("\nYour first Name is %s", bookDoc.firstName);
 
-            clearInputBuffer(); // if using two times of fgest should use before finishing one fgets....
+            //clearInputBuffer(); // if using two times of fgest should use before finishing one fgets....
 
             printf("\n\t\t\t\tEnter Student Last Name :: ");
 
@@ -328,7 +331,7 @@ void adding() {
             //fflush(stdout);
             //scanf("%s", bookDoc.lastName);
             //gets(bookDoc.lastName);
-            //fgets(bookDoc.lastName,sizeof(bookDoc.lastName), stdin);
+            fgets(bookDoc.lastName,sizeof(bookDoc.lastName), stdin);
             bookDoc.lastName[strcspn(bookDoc.lastName, "\n")] = 0;
             //printf("\nYour last name is %s >>", bookDoc.lastName);
 
@@ -336,15 +339,20 @@ void adding() {
             //printf("\t\t\tEnter your Full Name :: ");
             //fgets(bookDoc.fullName, sizeof(bookDoc.fullName), stdin);
 
-            printf("Debug: first name = %s \n", bookDoc.firstName);
-            printf("Debug: second name = %s \n", bookDoc.lastName);
+            //printf("Debug: first name = %s \n", bookDoc.firstName);
+            //printf("Debug: second name = %s \n", bookDoc.lastName);
 
             strcpy(bookDoc.fullName, bookDoc.firstName);
             strcat(bookDoc.fullName, " ");
             strcat(bookDoc.fullName, bookDoc.lastName);
             //snprintf(bookDoc.fullName, sizeof(bookDoc.fullName), "%s %s", bookDoc.firstName, bookDoc.lastName);
-            printf("\n your full name is %s\n", bookDoc.fullName);
+            printf("\n\t\t\t\tYour full name :: %s\n", bookDoc.fullName);
 
+            /*
+            if (strlen(bookDoc.firstName) == 0) {
+                printf("You didn't enter a first name !1");
+            }
+            */
 
             printf("\n\t\t\t\tEnter Book Name :: ");
             scanf("%s", bookDoc.bookName);
