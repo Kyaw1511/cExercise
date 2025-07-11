@@ -292,7 +292,7 @@ void adding() {
     int selection;
     char check;
     category();
-    scanf("%d", &selection);
+    scanf("%d", &selection); // choose in the category;
 
     // after fixing here
     clearInputBuffer();
@@ -302,67 +302,25 @@ void adding() {
         case 1:
             system("cls"); //not to show anything on screen.
             welcomeNow();
-            //while((c = getch()) != '\n' && c != EOF){} //flash stdin manually
             printf("\n\n\n\t\t\t\tEnter Student First Name :: ");
-            /*if (fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin) == NULL ) {
-                perror("Error reading first name ! ");
-
-                return ;
-            }*/
-
-            //fflush(stdout); // make sure prompt appears before input.
-            //scanf("%s", bookDoc.firstName);
-            //gets(bookDoc.firstName);
             fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
             bookDoc.firstName[strcspn(bookDoc.firstName, "\n")] = 0;
-            //printf("\nYour first Name is %s", bookDoc.firstName);
-
-            //clearInputBuffer(); // if using two times of fgest should use before finishing one fgets....
-
             printf("\n\t\t\t\tEnter Student Last Name :: ");
-
-            /*if (fgets(bookDoc.lastName, sizeof(bookDoc.lastName), stdin) == NULL ) {
-                perror("Error reading Last name !");
-
-                return ;
-            }
-            */
-
-            //fflush(stdout);
-            //scanf("%s", bookDoc.lastName);
-            //gets(bookDoc.lastName);
             fgets(bookDoc.lastName,sizeof(bookDoc.lastName), stdin);
             bookDoc.lastName[strcspn(bookDoc.lastName, "\n")] = 0;
-            //printf("\nYour last name is %s >>", bookDoc.lastName);
-
-            // testing;
-            //printf("\t\t\tEnter your Full Name :: ");
-            //fgets(bookDoc.fullName, sizeof(bookDoc.fullName), stdin);
-
-            //printf("Debug: first name = %s \n", bookDoc.firstName);
-            //printf("Debug: second name = %s \n", bookDoc.lastName);
-
             strcpy(bookDoc.fullName, bookDoc.firstName);
             strcat(bookDoc.fullName, " ");
             strcat(bookDoc.fullName, bookDoc.lastName);
-            //snprintf(bookDoc.fullName, sizeof(bookDoc.fullName), "%s %s", bookDoc.firstName, bookDoc.lastName);
             printf("\n\t\t\t\tYour full name :: %s\n", bookDoc.fullName);
-
-            /*
-            if (strlen(bookDoc.firstName) == 0) {
-                printf("You didn't enter a first name !1");
-            }
-            */
-
             printf("\n\t\t\t\tEnter Book Name :: ");
             scanf("%s", bookDoc.bookName);
-            //nclearInputBuffer();
-            printf("\t\t\t\tEnter Student ID :: ");
+            printf("\n\t\t\t\tEnter Student ID :: ");
             scanf("%d", &bookDoc.studentId);
-            printf("\t\t\t\tEnter the Start Date(DD--MM--YY) :: ");
+            printf("\n\t\t\t\tEnter the Start Date(DD--MM--YY) :: ");
             scanf("%d--%d--%d", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
-            printf("\t\t\t\tEnter the End Date(DD--MM--YY) ::");
+            printf("\n\t\t\t\tEnter the End Date(DD--MM--YY) ::");
             scanf("%d--%d--%d", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
+
             programming = fopen("programming.txt", "a+");
             fwrite(&bookDoc, sizeof(bookDoc), 1, programming);
             fclose(programming);
@@ -375,8 +333,45 @@ void adding() {
 
             break;
 
+        // maths section;
+        case 2:
+            system("cls"); // all output cmd would be clear;
+            welcomeNow();
+
+            printf("\n\n\n\t\t\t\tEnter Your First Name :: ");
+            fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
+            bookDoc.firstName[strcspn(bookDoc.firstName, "\n")] = 0;
+
+            printf("\n\t\t\t\tEnter your Last Name :: ");
+            fgets(bookDoc.lastName, sizeof(bookDoc.lastName), stdin);
+            bookDoc.lastName[strcspn(bookDoc.lastName, "\n")] = 0;
+
+            strcpy(bookDoc.fullName, bookDoc.firstName);
+            strcat(bookDoc.fullName, " ");
+            strcat(bookDoc.fullName, bookDoc.lastName);
+
+            printf("\n\t\t\t\tYour Full Name :: %s \n", bookDoc.fullName );
+            printf("\n\t\t\t\tEnter Book Name :: ");
+            scanf("%s", bookDoc.bookName);
+            printf("\n\t\t\t\tEnter Student ID :: ");
+            scanf("%d", &bookDoc.studentId);
+            printf("\n\t\t\t\tEnter the Start Date (DD--MM--YY) :: ");
+            scanf("%d--%d--%d", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startMonth);
+            printf("\n\t\t\t\tEnter the End Date (DD--MM--YY) :: ");
+            scanf("%d--%d--%d", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
+
+            maths = fopen("maths.txt", "a+");
+            fwrite(&bookDoc, sizeof(bookDoc), 1, maths);
+            fclose(maths);
+            Sleep(1000);
+            printf("\n\n\n\t\t\t\tThe Book info have been saved successfully ....... ");
+            getch();
+            system("cls");
+            welcomeNow();
+
+            break;
+
     }
-    //printf("test");
 }
 
 // menu remove
