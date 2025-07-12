@@ -17,6 +17,7 @@ FILE*maths;
 FILE*english;
 FILE*physic;
 FILE*chemistry;
+FILE*biology;
 
 //structure for book;
 struct book {
@@ -485,6 +486,43 @@ void adding() {
             Sleep(1000);
 
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully .......  ");
+            getch();
+            system("cls");
+            welcomeNow();
+
+            break;
+
+        case 6:
+            system("cls");
+            welcomeNow();
+            printf("\n\t\t\t\tEnter Student First Name :: ");
+            fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
+            bookDoc.firstName[strcspn(bookDoc.firstName, "\n")] = 0;
+
+            printf("\n\t\t\t\tEnter Student Last Name :: ");
+            fgets(bookDoc.lastName, sizeof(bookDoc.lastName), stdin);
+            bookDoc.lastName[strcspn(bookDoc.lastName, "\n")] = 0;
+
+            strcpy(bookDoc.fullName, bookDoc.firstName);
+            strcat(bookDoc.fullName, " ");
+            strcat(bookDoc.fullName, bookDoc.lastName);
+            printf("\n\t\t\t\tYour Full Name :: %s \n", bookDoc.fullName);
+
+            printf("\n\t\t\t\tEnter Book Name :: ");
+            scanf("%s", bookDoc.bookName);
+            printf("\n\t\t\t\tEnter Student ID :: ");
+            scanf("%d", &bookDoc.studentId);
+
+            printf("\n\t\t\t\tEnter the Start Date (DD--MM--YY) :: ");
+            scanf("%d--%d--%d", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
+            printf("\n\t\t\t\tEnter the End Date (DD--MM--YY) :: ");
+            scanf("%d--%d--%d", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
+
+            biology = fopen("biology.txt", "a+");
+            fwrite(&bookDoc, sizeof(bookDoc), 1, biology);
+            fclose(biology);
+            Sleep(1000);
+            printf("\n\n\n\t\t\t\tThe Book info have been saved successfully ....... ");
             getch();
             system("cls");
             welcomeNow();
