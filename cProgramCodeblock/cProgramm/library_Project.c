@@ -293,7 +293,7 @@ void adding() {
     system("cls");
     welcomeNow();
     int selection;
-    char check;
+    //char check;
     category();
     scanf("%d", &selection); // choose in the category;
 
@@ -540,12 +540,12 @@ void removing() {
 // menu checking
 void checking() {
     system("cls");
-    int selection;
+    int selections;
     welcomeNow();
     category();
-    scanf("%d", &selection);
+    scanf("%d", &selections);
 
-    switch(selection) {
+    switch(selections) {
     //programming
     case 1:
         system("cls");
