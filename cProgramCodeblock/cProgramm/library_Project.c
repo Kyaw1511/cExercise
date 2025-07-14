@@ -539,7 +539,177 @@ void removing() {
 
 // menu checking
 void checking() {
-    printf("test");
+    system("cls");
+    int selection;
+    welcomeNow();
+    category();
+    scanf("%d", &selection);
+
+    switch(selection) {
+    //programming
+    case 1:
+        system("cls");
+        welcomeNow();
+
+        programming = fopen("programming.txt", "r");
+        fread(&bookDoc, sizeof(bookDoc), 1, programming);
+        while (!feof(programming)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
+                printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, programming);
+                getch();
+
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, programming);
+            }
+        }
+        fclose(programming);
+        break;
+
+        // maths
+        case 2:
+        system("cls");
+        welcomeNow();
+
+        maths = fopen("maths.txt", "r");
+        fread(&bookDoc, sizeof(bookDoc), 1, maths);
+        while (!feof(maths)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
+                printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, maths);
+                getch();
+
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, maths);
+            }
+        }
+        fclose(maths);
+        break;
+
+        //english
+        case 3:
+        system("cls");
+        welcomeNow();
+
+        english = fopen("english.txt", "r");
+        fread(&bookDoc, sizeof(bookDoc), 1, english);
+        while (!feof(english)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
+                printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, english);
+                getch();
+
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, english);
+            }
+        }
+        fclose(english);
+        break;
+
+        // physic;
+        case 4:
+        system("cls");
+        welcomeNow();
+
+        physic = fopen("physic.txt", "r");
+        fread(&bookDoc, sizeof(bookDoc), 1, physic);
+        while (!feof(physic)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
+                printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, physic);
+                getch();
+
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, physic);
+            }
+        }
+        fclose(physic);
+        break;
+
+        case 5:
+        system("cls");
+        welcomeNow();
+
+        chemistry = fopen("chemistry.txt", "r");
+        fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
+        while (!feof(chemistry)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
+                printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
+                getch();
+
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
+            }
+        }
+        fclose(chemistry);
+        break;
+
+        //biology
+        case 6:
+        system("cls");
+        welcomeNow();
+
+        biology = fopen("biology.txt", "r");
+        fread(&bookDoc, sizeof(bookDoc), 1, biology);
+        while (!feof(biology)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
+                printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, biology);
+                getch();
+
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, biology);
+            }
+        }
+        fclose(biology);
+        break;
+
+        case 0:
+            system("cls");
+            welcomeNow();
+            menu();
+            break;
+
+        default:
+            system("cls");
+            welcomeNow();
+            checking();
+            break;
+    }
+
+    //printf("test");
+
 }
 
 // menu login
