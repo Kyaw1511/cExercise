@@ -306,23 +306,23 @@ void adding() {
         case 1:
             system("cls"); //not to show anything on screen.
             welcomeNow();
-            printf("\n\n\n\t\t\t\tEnter Student First Name :: ");
+            printf("\n\n\n\t\t\t\tEnter Student First Name      :: ");
             fgets(bookDoc.firstName, sizeof(bookDoc.firstName), stdin);
             bookDoc.firstName[strcspn(bookDoc.firstName, "\n")] = 0;
-            printf("\n\t\t\t\tEnter Student Last Name :: ");
+            printf("\n\t\t\t\tEnter Student Last Name           :: ");
             fgets(bookDoc.lastName,sizeof(bookDoc.lastName), stdin);
             bookDoc.lastName[strcspn(bookDoc.lastName, "\n")] = 0;
             strcpy(bookDoc.fullName, bookDoc.firstName);
             strcat(bookDoc.fullName, " ");
             strcat(bookDoc.fullName, bookDoc.lastName);
-            printf("\n\t\t\t\tYour full name :: %s\n", bookDoc.fullName);
-            printf("\n\t\t\t\tEnter Book Name :: ");
+            printf("\n\t\t\t\tYour full name                    :: %s\n", bookDoc.fullName);
+            printf("\n\t\t\t\tEnter Book Name                   :: ");
             scanf("%s", bookDoc.bookName);
-            printf("\n\t\t\t\tEnter Student ID :: ");
+            printf("\n\t\t\t\tEnter Student ID                  :: ");
             scanf("%d", &bookDoc.studentId);
-            printf("\n\t\t\t\tEnter the Start Date(DD--MM--YY) :: ");
+            printf("\n\t\t\t\tEnter the Start Date(DD--MM--YY)  :: ");
             scanf("%d--%d--%d", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
-            printf("\n\t\t\t\tEnter the End Date(DD--MM--YY) ::");
+            printf("\n\t\t\t\tEnter the End Date(DD--MM--YY)    ::");
             scanf("%d--%d--%d", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
 
             programming = fopen("programming.txt", "a+");
@@ -539,7 +539,72 @@ void adding() {
 
 // menu remove
 void removing() {
-    printf("test");
+    //printf("test");
+
+    struct book zero = { "", "", "", 0,0,0,0,0,0,0};
+    char bookName[50];
+    int select;
+    int i = 0;
+    int k;
+    system("cls");
+    welcomeNow();
+    category();
+    scanf("%d", &select);
+    switch(select) {
+
+    case1:
+        system("cls");
+        welcomeNow();
+        programming = fopen("programming.txt", "r+");
+        fread(&bookDoc, sizeof(bookDoc), 1, programming);
+        while(!feof(programming)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\n\t\t\t\tStudent Name          : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tStudent ID                  : %d\n", bookDoc.studentId);
+                printf("\t\t\t\tBook Name                   : %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStart Date (DD--MM--YY)     : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY)       : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, programming);
+                getch();
+
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, programming);
+            }
+        }
+        printf("\n\n\n\t\t\t\tEnter Book Name to Remove from the list : ");
+        scanf("%s", bookName);
+        rewind(programming);
+        fread(&bookDoc, sizeof(bookDoc), 1, programming);
+        while (!feof(programming)) {
+            if(strcmp(bookDoc.bookName, bookName) == 0) {
+                break;
+            }
+            i++;
+            fread(&bookDoc, sizeof(bookDoc), 1, programming);
+        }
+        fseek(programming, i*sizeof(bookDoc), SEEK_SET);
+        fwrite(&zero, sizeof(zero), 1, programming);
+        fclose(programming);
+        printf("\n\n\t\t\t\tSearching");
+            for(k = 0; k < 3; k++) {
+                Sleep(700);
+                printf(".");
+            }
+        printf("\n\n\t\t\t\tFound....");
+        printf("\n\n\t\t\t\tDeleting");
+            for(k=0; k<3; k++) {
+                Sleep(700);
+                printf(".")
+        }
+        printf("\n\n\t\t\t\tDone ....");
+        printf("\n\n\t\t\t\tPress Any Key to Go Back .....  ");
+        getch();
+        system("cls");
+        welcomeNow();
+        menu();
+
+    }
 }
 
 // menu checking
