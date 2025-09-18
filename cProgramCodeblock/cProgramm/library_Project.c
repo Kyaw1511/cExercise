@@ -287,6 +287,7 @@ void clearInputBuffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
+
 // menu adding
 void adding() {
 
@@ -374,6 +375,7 @@ void adding() {
 
             break;
 
+        // english section
         case 3:
             system("cls");
             welcomeNow();
@@ -414,6 +416,7 @@ void adding() {
 
             break;
 
+        // physic section
         case 4:
             system("cls");
             welcomeNow();
@@ -453,6 +456,7 @@ void adding() {
 
             break;
 
+        // chemistry section
         case 5:
             system("cls");
             welcomeNow();
@@ -492,6 +496,7 @@ void adding() {
 
             break;
 
+        // biology section
         case 6:
             system("cls");
             welcomeNow();
