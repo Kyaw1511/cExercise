@@ -548,16 +548,16 @@ void removing() {
 
     struct book zero = { "", "", "", 0,0,0,0,0,0,0};
     char bookName[50];
-    int select;
+    int selection;
     int i = 0;
     int k;
     system("cls");
     welcomeNow();
     category();
-    scanf("%d", &select);
-    switch(select) {
-
-    case1:
+    scanf("%d", &selection);
+    //clearInputBuffer();
+    switch(selection) {
+    case 1:
         system("cls");
         welcomeNow();
         programming = fopen("programming.txt", "r+");
@@ -608,7 +608,7 @@ void removing() {
         system("cls");
         welcomeNow();
         menu();
-
+        break;
     }
 }
 
