@@ -595,7 +595,7 @@ void removing() {
         printf("\n\n\t\t\t\tDeleting");
             for(k=0; k<3; k++) {
                 Sleep(700);
-                printf(".")
+                printf(".");
         }
         printf("\n\n\t\t\t\tDone ....");
         printf("\n\n\t\t\t\tPress Any Key to Go Back .....  ");
@@ -784,7 +784,71 @@ void checking() {
 
 // menu login
 void logIn() {
-    printf("test");
+    //printf("test");
+    system("cls");
+    welcomeNow();
+    char checkName[50];
+    char checkPass[50];
+    char check;
+    int i;
+    printf("\n\t\t\t\tDo you want to change your Admin Name and Password. (Y/N)     : ");
+    scanf("%s", &check);
+    if (check == 'y' || check == 'Y') {
+        printf("\n\t\t\t\tEnter Current Admin Name      : ");
+        scanf("%s", &checkName);
+        printf("\t\t\t\tEnter Current Admin Password    : ");
+        for (i=0; i<50; i++) {
+            checkPass[i] = getch();
+            if(checkPass[i] == 13) {
+                checkPass[i] = '\0';
+                break;
+            }
+            putchar('*');
+        }
+        printf("\n\n\t\t\t\tLoading...");
+        for (i=0; i<5; i++) {
+            Sleep(700);
+            printf(".");
+        }
+        passw = fopen("password.txt", "r+");
+        fread(&adminCheck, sizeof(adminCheck), 1, passw);
+        if(strcmp(adminCheck.adminName, checkName) == 0 &&
+           strcmp(adminCheck.adminpass, checkPass) ==0) {
+                printf("\n\n\t\t\t\tCorrect......");
+                printf("\n\n\t\t\t\tPress Any Key to Continue ..... ");
+                getch();
+                system("cls");
+                welcomeNow();
+                printf("\n\n\n\t\t\t\tEnter New Admin Name      : ");
+                scanf("%s", adminCheck.adminName);
+                printf("\t\t\t\tEnter New Admin Password        : ");
+                for(i=0; i<50; i++) {
+                    adminCheck.adminpass[i] = getch();
+                    if (adminCheck.adminpass[i] == 13) {
+                        adminCheck.adminpass[i] = '\0';
+                        break;
+                    }
+                    putchar('*');
+                }
+                fseek(passw, 0, SEEK_SET);
+                fwrite(&adminCheck, sizeof(adminCheck), 1, passw);
+                fclose(passw);
+                printf("\n\t\t\t\tAdmin Name and Admin Password have been successfully updated ....\n");
+                printf("\n\t\t\t\tYou need to Login again .... ");
+                getch();
+                system("cls");
+                //menu();
+                main();
+           } else {
+                printf("\n\n\t\t\t\tIncorrect Admin Name and Admin Password, Please try again... ");
+                getch();
+                logIn();
+           }
+    } else {
+        system("cls");
+        welcomeNow();
+        menu();
+    }
 }
 
 // category function
