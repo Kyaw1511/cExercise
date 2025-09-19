@@ -281,7 +281,12 @@ void menu() {
 
 }
 
-
+//my callback main function is not working.
+void display() {
+    welcomeNow();
+    password();
+    menu();
+}
 // avoid for goes to last name cursor;
 void clearInputBuffer() {
     int c;
@@ -837,8 +842,9 @@ void logIn() {
                 printf("\n\t\t\t\tYou need to Login again .... ");
                 getch();
                 system("cls");
+                display();
                 //menu();
-                main();
+                //main();
            } else {
                 printf("\n\n\t\t\t\tIncorrect Admin Name and Admin Password, Please try again... ");
                 getch();
@@ -862,6 +868,7 @@ void category() {
     printf("\t\t\t\t0.Go to Back\n\n\t\t\t >>>");
 }
 
+
 // main function
 int main() {
 
@@ -872,6 +879,9 @@ int main() {
     password();
     //welcomeNow();
     menu();
+
+    //instead using for main function
+    display();
 
     return 0;
 
