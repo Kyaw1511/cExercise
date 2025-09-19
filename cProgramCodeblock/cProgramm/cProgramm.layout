@@ -2,26 +2,30 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="info.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="75" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="library_Project.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="19286" topLine="170" />
+			<Cursor1 position="29881" topLine="157" />
 		</Cursor>
 		<Folding>
 			<Collapse line="61" />
 			<Collapse line="84" />
 			<Collapse line="152" />
+			<Collapse line="173" />
 			<Collapse line="193" />
 			<Collapse line="211" />
 			<Collapse line="230" />
 			<Collapse line="249" />
-			<Collapse line="285" />
-			<Collapse line="291" />
-			<Collapse line="303" />
+			<Collapse line="290" />
+			<Collapse line="296" />
+			<Collapse line="308" />
+			<Collapse line="545" />
+			<Collapse line="615" />
+			<Collapse line="860" />
 		</Folding>
-	</File>
-	<File name="info.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="75" topLine="0" />
-		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
