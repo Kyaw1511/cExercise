@@ -557,6 +557,8 @@ void removing() {
     scanf("%d", &selection);
     //clearInputBuffer();
     switch(selection) {
+
+    // programming
     case 1:
         system("cls");
         welcomeNow();
@@ -609,7 +611,53 @@ void removing() {
         welcomeNow();
         menu();
         break;
-    }
+
+    // english;
+    case 2:
+        system ("cls");
+        welcomeNow();
+        english = fopen("english.txt", "r+");
+        fread(&bookDoc, sizeof(bookDoc), 1, english);
+        while(!feof(english)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\t\t\t\tStudent Name        : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tBook Name               : %s %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, english);
+                getch();
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, english);
+            }
+        }
+        printf("\n\n\t\t\t\tEnter Book Name to Remove from the list : ");
+        scanf("%s", bookName);
+        rewind(english);
+        fread(&bookDoc, sizeof(bookDoc), 1, english);
+        while (!feof(english)) {
+            if(strcmp(bookDoc.bookName, bookName) == 0 {
+                break;
+            }
+            i++;
+            fread(&bookDoc, sizeof(bookDoc), 1, english);
+        }
+        fseek(english, i*sizeof(bookDoc), SEEK_SET);
+        fwrite(&zero, sizeof(zero), 1, english);
+        fclose(english);
+        printf("\n\n\t\t\t\tSearching....");
+            for(k = 0; k < 3; k++) {
+                Sleep(700);
+                printf(".");
+            }
+        printf("\n\n\t\t\t\tDone...");
+        printf("\n\n\t\t\t\tPress Any Key to Go Back .... ");
+        getch();
+        system("cls");
+        welcomeNow();
+        menu();
+        break;
+
 }
 
 // menu checking
