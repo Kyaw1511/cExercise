@@ -111,23 +111,23 @@ void password() {
         printf("\n\t\t%-30s : " ,"Enter the Admin PassWord");
         for(i=0; i<50; i++) {
             pass[i] = getch();
-            /*if(pass[i] == 13) {
+            if(pass[i] == 13) {
                 pass[i] = '\0'; // needed this statement;
                 break;
-            }*/
+            }
 
             // testing password using backspaces.
-            while(pass[i] != 13) {
-                if (pass[i] == 8) {
-                    if (i > 0) {
-                        i--;
-                        printf("\b\b"); // Backspace to erase character
-                    }
-                } else {
-                    pass[i] = '\0';
-                    break;
-                }
-            }
+            // while(pass[i] != 13) {
+            //     if (pass[i] == 8) {
+            //         if (i > 0) {
+            //             pass[i]--;
+            //             printf("\b\b"); // Backspace to erase character
+            //         }
+            //     } else {
+            //         pass[i] = '\0';
+            //         break;
+            //     }
+            // }
             // cover a letter to x;
             putchar('x');
         }
