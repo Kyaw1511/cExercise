@@ -545,7 +545,6 @@ void adding() {
 // menu remove
 void removing() {
     //printf("test");
-
     struct book zero = { "", "", "", 0,0,0,0,0,0,0};
     char bookName[50];
     int selection;
@@ -557,7 +556,6 @@ void removing() {
     scanf("%d", &selection);
     //clearInputBuffer();
     switch(selection) {
-
     // programming
     case 1:
         system("cls");
@@ -636,12 +634,13 @@ void removing() {
         rewind(english);
         fread(&bookDoc, sizeof(bookDoc), 1, english);
         while (!feof(english)) {
-            if(strcmp(bookDoc.bookName, bookName) == 0 {
+            if(strcmp(bookDoc.bookName, bookName) == 0) {
                 break;
             }
             i++;
             fread(&bookDoc, sizeof(bookDoc), 1, english);
-        }
+            }
+
         fseek(english, i*sizeof(bookDoc), SEEK_SET);
         fwrite(&zero, sizeof(zero), 1, english);
         fclose(english);
@@ -870,6 +869,7 @@ void removing() {
         menu();
         break;
 
+    }
 }
 
 // menu checking
