@@ -658,6 +658,218 @@ void removing() {
         menu();
         break;
 
+       // chem
+     case 3:
+        system("cls");
+        welcomeNow();
+        maths = fopen("maths.txt", "r+");
+        fread(&bookDoc, sizeof(bookDoc), 1, maths);
+        while(!feof(maths)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\t\t\t\tStudent Name        : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tStudent ID              : %d\n", bookDoc.studentId);
+                printf("\t\t\t\tBook Name               : %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, maths);
+                getch();
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, maths);
+            }
+        }
+        printf("\n\n\t\t\t\tEnter Book Name to Remove front the last    : ");
+        scanf("%s", bookName);
+        rewind(maths);
+        fread(&bookDoc, sizeof(bookDoc), 1, maths);
+        while (!feof(maths)) {
+            if(strcmp(bookDoc.bookName, bookName) == 0) {
+                break;
+            }
+            i++;
+            fread(&bookDoc, sizeof(bookDoc), 1, maths);
+        }
+        fseek(maths, i*sizeof(bookDoc), SEEK_SET);
+        fwrite(&zero, sizeof(zero), 1, maths);
+        fclose(maths);
+        printf("\n\n\t\t\t\tSearching");
+        for (k=0; k<3; k++) {
+            Sleep(700);
+            printf(".");
+        }
+        printf("\n\n\t\t\t\tFound....");
+        printf("\n\n\t\t\t\tDeleting");
+        for(k=0; k<3; k++) {
+            Sleep(700);
+            printf(".");
+        }
+        printf("\n\n\t\t\t\tDone....");
+        printf("\n\n\t\t\t\tPress Any Key to Go back...");
+        getch();
+        system("cls");
+        welcomeNow();
+        menu();
+        break;
+
+        // physic
+        case 4:
+        system("cls");
+        welcomeNow();
+        physic = fopen("physic.txt", "r+");
+        fread(&bookDoc, sizeof(bookDoc), 1, physic);
+        while(!feof(physic)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\t\t\t\tStudent Name        : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tStudent ID              : %d\n", bookDoc.studentId);
+                printf("\t\t\t\tBook Name               : %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, physic);
+                getch();
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, physic);
+            }
+        }
+        printf("\n\n\t\t\t\tEnter Book Name to Remove front the last    : ");
+        scanf("%s", bookName);
+        rewind(physic);
+        fread(&bookDoc, sizeof(bookDoc), 1, physic);
+        while (!feof(physic)) {
+            if(strcmp(bookDoc.bookName, bookName) == 0) {
+                break;
+            }
+            i++;
+            fread(&bookDoc, sizeof(bookDoc), 1, physic);
+        }
+        fseek(physic, i*sizeof(bookDoc), SEEK_SET);
+        fwrite(&zero, sizeof(zero), 1, physic);
+        fclose(physic);
+        printf("\n\n\t\t\t\tSearching");
+        for (k=0; k<3; k++) {
+            Sleep(700);
+            printf(".");
+        }
+        printf("\n\n\t\t\t\tFound....");
+        printf("\n\n\t\t\t\tDeleting");
+        for(k=0; k<3; k++) {
+            Sleep(700);
+            printf(".");
+        }
+        printf("\n\n\t\t\t\tDone....");
+        printf("\n\n\t\t\t\tPress Any Key to Go back...");
+        getch();
+        system("cls");
+        welcomeNow();
+        menu();
+        break;
+
+    //chmistry
+     case 5:
+        system("cls");
+        welcomeNow();
+        chemistry = fopen("chemistry.txt", "r+");
+        fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
+        while(!feof(chemistry)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\t\t\t\tStudent Name        : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tStudent ID              : %d\n", bookDoc.studentId);
+                printf("\t\t\t\tBook Name               : %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
+                getch();
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
+            }
+        }
+        printf("\n\n\t\t\t\tEnter Book Name to Remove front the last    : ");
+        scanf("%s", bookName);
+        rewind(chemistry);
+        fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
+        while (!feof(chemistry)) {
+            if(strcmp(bookDoc.bookName, bookName) == 0) {
+                break;
+            }
+            i++;
+            fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
+        }
+        fseek(chemistry, i*sizeof(bookDoc), SEEK_SET);
+        fwrite(&zero, sizeof(zero), 1, chemistry);
+        fclose(chemistry);
+        printf("\n\n\t\t\t\tSearching");
+        for (k=0; k<3; k++) {
+            Sleep(700);
+            printf(".");
+        }
+        printf("\n\n\t\t\t\tFound....");
+        printf("\n\n\t\t\t\tDeleting");
+        for(k=0; k<3; k++) {
+            Sleep(700);
+            printf(".");
+        }
+        printf("\n\n\t\t\t\tDone....");
+        printf("\n\n\t\t\t\tPress Any Key to Go back...");
+        getch();
+        system("cls");
+        welcomeNow();
+        menu();
+        break;
+
+    // bioloby
+     case 6:
+        system("cls");
+        welcomeNow();
+        biology = fopen("biology.txt", "r+");
+        fread(&bookDoc, sizeof(bookDoc), 1, biology);
+        while(!feof(biology)) {
+            if(bookDoc.studentId != 0) {
+                printf("\n\n\t\t\t\tStudent Name        : %s %s\n", bookDoc.firstName, bookDoc.lastName);
+                printf("\t\t\t\tStudent ID              : %d\n", bookDoc.studentId);
+                printf("\t\t\t\tBook Name               : %s\n", bookDoc.bookName);
+                printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
+                printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
+                Sleep(1000);
+                fread(&bookDoc, sizeof(bookDoc), 1, biology);
+                getch();
+            } else {
+                fread(&bookDoc, sizeof(bookDoc), 1, biology);
+            }
+        }
+        printf("\n\n\t\t\t\tEnter Book Name to Remove front the last    : ");
+        scanf("%s", bookName);
+        rewind(biology);
+        fread(&bookDoc, sizeof(bookDoc), 1, biology);
+        while (!feof(biology)) {
+            if(strcmp(bookDoc.bookName, bookName) == 0) {
+                break;
+            }
+            i++;
+            fread(&bookDoc, sizeof(bookDoc), 1, biology);
+        }
+        fseek(biology, i*sizeof(bookDoc), SEEK_SET);
+        fwrite(&zero, sizeof(zero), 1, biology);
+        fclose(biology);
+        printf("\n\n\t\t\t\tSearching");
+        for (k=0; k<3; k++) {
+            Sleep(700);
+            printf(".");
+        }
+        printf("\n\n\t\t\t\tFound....");
+        printf("\n\n\t\t\t\tDeleting");
+        for(k=0; k<3; k++) {
+            Sleep(700);
+            printf(".");
+        }
+        printf("\n\n\t\t\t\tDone....");
+        printf("\n\n\t\t\t\tPress Any Key to Go back...");
+        getch();
+        system("cls");
+        welcomeNow();
+        menu();
+        break;
+
 }
 
 // menu checking
@@ -830,9 +1042,7 @@ void checking() {
             checking();
             break;
     }
-
     //printf("test");
-
 }
 
 // menu login
