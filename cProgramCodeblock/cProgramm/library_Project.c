@@ -110,7 +110,7 @@ void password() {
         printf("\t\t%-30s : ", "Enter the Admin Name");
         scanf("%s", adminCheck.adminName);
         printf("\n\t\t%-30s : " ,"Enter the Admin PassWord");
-        for(i=0; i<50; i++) {
+        for(i=0; i<50; ) {
             pass[i] = getch();
             /*if(pass[i] == 13) {
                 pass[i] = '\0'; // needed this statement;
@@ -124,10 +124,8 @@ void password() {
                     i--;
                     printf("\b \b");
                 } else {
-                    //pass[i] = pass[i];
-                    printf("x");
-                    putchar('x');
-                    //i++;
+                    putchar('*');
+                    i++;
                     
                 }
             }
@@ -135,7 +133,7 @@ void password() {
             // testing password using backspaces.
             
             // cover a letter to x;
-            //putchar('x');
+           //putchar('*');
         }
         // read file to password.txt;
         fread(&adminCheck, sizeof(adminCheck), 1, passw);
