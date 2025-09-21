@@ -49,7 +49,8 @@ void category();
 
 
 // structure of default admin;g
-struct defaultAdmin{
+struct defaultAdmin
+{
     char adminName[50];
     char adminpass[50];
 
@@ -111,25 +112,30 @@ void password() {
         printf("\n\t\t%-30s : " ,"Enter the Admin PassWord");
         for(i=0; i<50; i++) {
             pass[i] = getch();
-            if(pass[i] == 13) {
+            /*if(pass[i] == 13) {
                 pass[i] = '\0'; // needed this statement;
                 break;
+            } */
+            if (pass[i] == 13) {
+                pass[i] = '\0';
+                break;
+            } else if (pass[i] == 8) { // backspace key
+                if (i > 0) {
+                    i--;
+                    printf("\b \b");
+                } else {
+                    //pass[i] = pass[i];
+                    printf("x");
+                    putchar('x');
+                    //i++;
+                    
+                }
             }
 
             // testing password using backspaces.
-            // while(pass[i] != 13) {
-            //     if (pass[i] == 8) {
-            //         if (i > 0) {
-            //             pass[i]--;
-            //             printf("\b\b"); // Backspace to erase character
-            //         }
-            //     } else {
-            //         pass[i] = '\0';
-            //         break;
-            //     }
-            // }
+            
             // cover a letter to x;
-            putchar('x');
+            //putchar('x');
         }
         // read file to password.txt;
         fread(&adminCheck, sizeof(adminCheck), 1, passw);
@@ -302,6 +308,7 @@ void display() {
     password();
     menu();
 }
+
 // avoid for goes to last name cursor;
 void clearInputBuffer() {
     int c;
@@ -1150,6 +1157,7 @@ int main() {
 
     // for password;
     password();
+
     //welcomeNow();
     menu();
 
