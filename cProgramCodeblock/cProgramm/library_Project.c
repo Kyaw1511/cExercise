@@ -9,6 +9,7 @@
 #include <time.h>
 #include <windows.h>
 
+
 // Global Variables
 FILE*passw;
 FILE*logInSession;
@@ -86,6 +87,7 @@ void welcoming() {
 void password() {
     char pass[50] = "";
     char passCheck[50];
+    char ch;
     int i,k;
 
     passw = fopen("password.txt", "r");
@@ -111,29 +113,28 @@ void password() {
         scanf("%s", adminCheck.adminName);
         printf("\n\t\t%-30s : " ,"Enter the Admin PassWord");
         for(i=0; i<50; ) {
-            pass[i] = getch();
-            /*if(pass[i] == 13) {
+            //pass[i] = getch();
+            ch = getch();
+            /* if(pass[i] == 13) {
                 pass[i] = '\0'; // needed this statement;
                 break;
             } */
-            if (pass[i] == 13) {
-                pass[i] = '\0';
+            if (ch == 13) {
+                //pass[i] = '\0';
                 break;
-            } else if (pass[i] == 8) { // backspace key
-                if (i > 0) {
+            } else if (ch == 8) { // backspace key
+                if (i >= 0) {
                     i--;
                     printf("\b \b");
                 } else {
-                    putchar('*');
+                    pass[i] = ch;
                     i++;
-                    
+                    //printf("*");
                 }
             }
-
-            // testing password using backspaces.
-            
+            pass[i] = '\0';
             // cover a letter to x;
-           //putchar('*');
+           putchar('*');
         }
         // read file to password.txt;
         fread(&adminCheck, sizeof(adminCheck), 1, passw);
