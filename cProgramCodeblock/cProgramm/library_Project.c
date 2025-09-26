@@ -88,8 +88,7 @@ void password() {
     char pass[50] = "";
     char passCheck[50];
     char ch;
-    int i;
-    int k;
+    int i,k;
 
     passw = fopen("password.txt", "r");
     if(passw == NULL) {
@@ -113,43 +112,37 @@ void password() {
         printf("\t\t%-30s : ", "Enter the Admin Name");
         scanf("%s", adminCheck.adminName);
         printf("\n\t\t%-30s : " ,"Enter the Admin PassWord");
-        /*for(i=0; i<50; i++) {
-            //pass[i] = getch();
-            ch = getch();
+        /*
+        for(i=0; i<50; i++) {
+            pass[i] = getch();
+            //ch = getch();
             if(pass[i] == 13) {
                 pass[i] = '\0'; // needed this statement;
                 break;
             }
-            pass[i] = '\0';
             // cover a letter to x;
            putchar('*');
         } */
-        
-        // testing we use backspace keyword... 
-        while (i<49) {
-            ch = getch();
-            if (ch == 13)
-            {
+
+        // testing we use backspace keyword I;
+        for (i = 0; i < 50; i++ ) {
+            pass[i] = getch();
+            if(pass[i] == 13) {
                 pass[i] = '\0';
                 break;
-            } else if ( ch == 8 ) {
-                if (i >0) {
+            } else if (pass[i] == 8) {
+                if(i >0 ){
                     i--;
                     printf("\b \b");
+                    //break;
                 }
             } else {
-                pass[i] = ch;
                 putchar('*');
                 i++;
-            } 
-            
+                //break;
+            }
+            //break;
         }
-        if ( i == 49 && ch != 13) {
-            pass[i] = '\0';
-        }
-        printf("\n");
-        
-        
 
         // read file to password.txt;
         fread(&adminCheck, sizeof(adminCheck), 1, passw);
