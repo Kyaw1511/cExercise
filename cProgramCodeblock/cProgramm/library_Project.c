@@ -138,7 +138,7 @@ void password() {
                 }
             } else {
                 putchar('*');
-                i++;
+                //i++;
                 //break;
             }
             //break;
