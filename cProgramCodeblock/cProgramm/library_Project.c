@@ -127,22 +127,26 @@ void password() {
         // testing we use backspace keyword I;
         for (i = 0; i < 50; i++ ) {
             pass[i] = getch();
+
             if(pass[i] == 13) {
                 pass[i] = '\0';
                 break;
             } else if (pass[i] == 8) {
                 if(i >0 ){
-                    i--;
+                    i -= 2;
+                    pass[i + 1] = '\0';
                     printf("\b \b");
-                    //break;
+                    //i--;
                 }
-            } else {
+                else {
+                    i--;
+                }
+            } 
+            else {
                 putchar('*');
-                //i++;
-                //break;
-            }
-            //break;
-        }
+            } 
+        } 
+    
 
         // read file to password.txt;
         fread(&adminCheck, sizeof(adminCheck), 1, passw);
