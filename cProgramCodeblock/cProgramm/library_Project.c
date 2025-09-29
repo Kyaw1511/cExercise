@@ -113,6 +113,7 @@ void password() {
         scanf("%s", adminCheck.adminName);
         printf("\n\t\t%-30s : " ,"Enter the Admin PassWord");
         /*
+        // This is original code...
         for(i=0; i<50; i++) {
             pass[i] = getch();
             //ch = getch();
@@ -125,6 +126,7 @@ void password() {
         } */
 
         // testing we use backspace keyword I;
+        // This code is modification. I've added a backspace function that activates whein the user makes a typing error.
         for (i = 0; i < 50; i++ ) {
             pass[i] = getch();
 
@@ -207,15 +209,15 @@ void menu() {
     int selection;
     char check;
 
-    printf("\t\t\t\t1.Add Book to List \n");
+    printf("\t\t\t\t1. Add Book to List \n");
     Sleep(200);
-    printf("\t\t\t\t2.Remove Book from List\n");
+    printf("\t\t\t\t2. Remove Book from List\n");
     Sleep(200);
-    printf("\t\t\t\t3.Check Book List\n");
+    printf("\t\t\t\t3. Check Book List\n");
     Sleep(200);
-    printf("\t\t\t\t4.Change LogIn info\n");
+    printf("\t\t\t\t4. Change LogIn info\n");
     Sleep(200);
-    printf("\t\t\t\t0.Exit\n\n\t\t\t\t");
+    printf("\t\t\t\t0. Exit\n\n\t\t\t\t");
     Sleep(200);
     scanf("%d", &selection);
 
@@ -1150,13 +1152,14 @@ void logIn() {
 
 // category function
 void category() {
-    printf("\n\n\n\t\t\t\t1.Programming\n");
-    printf("\t\t\t\t2.Maths\n");
-    printf("\t\t\t\t3.English\n");
-    printf("\t\t\t\t4.Physics\n");
-    printf("\t\t\t\t5.Chemistry\n");
-    printf("\t\t\t\t6.Biology\n");
-    printf("\t\t\t\t0.Go to Back\n\n\t\t\t >>>");
+    printf("\n\n");
+    printf("\t\t\t\t1. Programming\n");
+    printf("\t\t\t\t2. Maths\n");
+    printf("\t\t\t\t3. English\n");
+    printf("\t\t\t\t4. Physics\n");
+    printf("\t\t\t\t5. Chemistry\n");
+    printf("\t\t\t\t6. Biology\n");
+    printf("\t\t\t\t0. Go to Back\n\n\t\t\t >>>");
 }
 
 
