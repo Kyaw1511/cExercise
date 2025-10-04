@@ -26,7 +26,7 @@ struct book {
     char lastName[100];
     char fullName[301];
     char bookName[100];
-    char studentId[20];
+    int studentId;
     int startDay;
     int startMonth;
     int startYear;
@@ -359,7 +359,7 @@ void adding() {
             printf("\n\t\t\t\tEnter Book Name                   :: ");
             scanf("%s", bookDoc.bookName);
             printf("\n\t\t\t\tEnter Student ID                  :: ");
-            scanf("%s", bookDoc.studentId);
+            scanf("%d", &bookDoc.studentId);
             printf("\n\t\t\t\tEnter the Start Date(DD/MM/YY)  :: ");
             scanf("%d/%d/%d", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
             printf("\n\t\t\t\tEnter the End Date(DD/MM/YY)    ::");
@@ -398,7 +398,7 @@ void adding() {
             printf("\n\t\t\t\tEnter Book Name :: ");
             scanf("%s", bookDoc.bookName);
             printf("\n\t\t\t\tEnter Student ID :: ");
-            scanf("%s", bookDoc.studentId);
+            scanf("%d", &bookDoc.studentId);
             printf("\n\t\t\t\tEnter the Start Date (DD--MM--YY) :: ");
             scanf("%d--%d--%d", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startMonth);
             printf("\n\t\t\t\tEnter the End Date (DD--MM--YY) :: ");
@@ -436,7 +436,7 @@ void adding() {
             scanf("%s", bookDoc.bookName);
 
             printf("\n\t\t\t\tEnter Student ID :: ");
-            scanf("%s", bookDoc.studentId);
+            scanf("%d", &bookDoc.studentId);
 
             printf("\n\t\t\t\tEnter the Start Date (DD--MM--YY) :: ");
             scanf("%d--%d--%d", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
@@ -477,7 +477,7 @@ void adding() {
             scanf("%s", bookDoc.bookName);
 
             printf("\n\t\t\t\tEnter Student ID :: ");
-            scanf("%s", bookDoc.studentId);
+            scanf("%d", &bookDoc.studentId);
 
             printf("\n\t\t\t\tEnter the Start Date (DD--MM--YY) :: ");
             scanf("%d--%d--%d", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
@@ -516,7 +516,7 @@ void adding() {
             printf("\n\t\t\t\tEnter Book Name :: ");
             scanf("%s", bookDoc.bookName);
             printf("\n\t\t\t\tEnter Student ID :: ");
-            scanf("%s", bookDoc.studentId);
+            scanf("%d", &bookDoc.studentId);
 
             printf("\n\t\t\t\tEnter the Start Date (DD--MM--YY) :: ");
             scanf("%d--%d--%d", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
@@ -554,9 +554,9 @@ void adding() {
             printf("\n\t\t\t\tYour Full Name :: %s \n", bookDoc.fullName);
 
             printf("\n\t\t\t\tEnter Book Name :: ");
-            scanf("%s", bookDoc.bookName);
+            scanf("%300s", bookDoc.bookName);
             printf("\n\t\t\t\tEnter Student ID :: ");
-            scanf("%s", bookDoc.studentId);
+            scanf("%d", &bookDoc.studentId);
 
             printf("\n\t\t\t\tEnter the Start Date (DD--MM--YY) :: ");
             scanf("%d--%d--%d", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
@@ -927,7 +927,7 @@ void checking() {
             if(bookDoc.studentId != 0) {
                 printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
                 printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
-                printf("\t\t\t\tStudent ID : %s\n", bookDoc.studentId);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
                 //tested for date issue;
                 printf("\t\t\t\tStart Date (DD/MM/YY) : %d/%d/%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD/MM/YY) : %d/%d/%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
@@ -953,7 +953,7 @@ void checking() {
             if(bookDoc.studentId != 0) {
                 printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
                 printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
-                printf("\t\t\t\tStudent ID : %s\n", bookDoc.studentId);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
                 Sleep(1000);
@@ -978,7 +978,7 @@ void checking() {
             if(bookDoc.studentId != 0) {
                 printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
                 printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
-                printf("\t\t\t\tStudent ID : %s\n", bookDoc.studentId);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
                 Sleep(1000);
@@ -1003,7 +1003,7 @@ void checking() {
             if(bookDoc.studentId != 0) {
                 printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
                 printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
-                printf("\t\t\t\tStudent ID : %s\n", bookDoc.studentId);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
                 Sleep(1000);
@@ -1027,7 +1027,7 @@ void checking() {
             if(bookDoc.studentId != 0) {
                 printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
                 printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
-                printf("\t\t\t\tStudent ID : %s\n", bookDoc.studentId);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
                 Sleep(1000);
@@ -1052,7 +1052,7 @@ void checking() {
             if(bookDoc.studentId != 0) {
                 printf("\n\n\n\t\t\t\tStudent Name : %s %s\n", bookDoc.firstName, bookDoc.lastName);
                 printf("\t\t\t\tBook Name : %s\n", bookDoc.bookName);
-                printf("\t\t\t\tStudent ID : %s\n", bookDoc.studentId);
+                printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
                 Sleep(1000);
