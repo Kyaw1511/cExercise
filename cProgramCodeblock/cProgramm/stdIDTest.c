@@ -12,11 +12,11 @@
 
 int main() {
     char input_buffer[MaX_ID_LENGTh];
-    int is_vailid = 1;
+    int is_valid = 1;
     int i;
-    int studentID;
+    int studentID = 0;
 
-    printf("\nEnter Student ID (digits only): \n"); 
+    printf("\nEnter Student ID (digits only): "); 
     //printf("Enter Student ID: ");
     if (fgets(input_buffer, MaX_ID_LENGTh, stdin) == NULL) {
         //printf("Error reading input. \n");
@@ -33,13 +33,13 @@ int main() {
     for (i = 0; i < len; i++) {
         char current_char = input_buffer[i];
         if (!isdigit(current_char)) {
-            is_vailid = 0;
+            is_valid = 0;
             break;
         }
     }
 
-    if (is_vailid) {
-        int studentId = atoi(input_buffer);
+    if (is_valid) {
+        studentID = atoi(input_buffer);
         printf("\n Validationn passed. Stored ID: %d\n", studentID);
 
     } else {
