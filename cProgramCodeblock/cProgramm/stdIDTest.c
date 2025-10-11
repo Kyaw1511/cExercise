@@ -29,13 +29,14 @@ int main() {
         len = len -1; 
 
     }
-    
+
     for (i = 0; i < len; i++) {
         char current_char = input_buffer[i];
+        //printf("tested");
         if (!isdigit(current_char)) {
             is_valid = 0;
             break;
-        }
+        }    
     }
 
     if (is_valid) {
