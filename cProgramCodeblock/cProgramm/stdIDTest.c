@@ -24,15 +24,34 @@ int main() {
 
     }
 
-    int len = strlen(input_buffer);
-    if (input_buffer[len - 1] == '\n') {
-        len = len -1; 
+    //original code;
+    // int len = strlen(input_buffer);
+    // if (input_buffer[len - 1] == '\n') {
+    //     len = len -1; 
 
+    // }
+
+    // tested
+    int len = strlen(input_buffer);
+    if ( len > 0 && input_buffer[len -1] == '\n') {
+        // input_buffer[len - 1] = '\0';
+        len = len-1;
+        
     }
+    if (len > 9 ) {
+            printf("greater");
+            fflush(stdout);
+            return 1;
+
+    } else {
+            printf("less than");
+            return 0;
+        }
+
 
     for (i = 0; i < len; i++) {
         char current_char = input_buffer[i];
-        //printf("tested");
+        printf("tested");
         if (!isdigit(current_char)) {
             is_valid = 0;
             break;
