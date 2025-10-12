@@ -33,20 +33,15 @@ int main() {
 
     // tested
     int len = strlen(input_buffer);
-    if ( len > 0 && input_buffer[len -1] == '\n') {
-        // input_buffer[len - 1] = '\0';
-        len = len-1;
-        
-    }
-    if (len > 9 ) {
-            printf("greater");
-            fflush(stdout);
-            return 1;
+    if (input_buffer[len - 1] == '\n') {
+        input_buffer[len - 1] = '\0';
+        len = len -1;
 
     } else {
-            printf("less than");
-            return 0;
-        }
+        is_valid = 0;
+        printf("\n Input is greater than 9 digits! Length: %d\n", len);
+    }
+
 
 
     for (i = 0; i < len; i++) {
@@ -66,10 +61,10 @@ int main() {
         printf("\n Validation Failed! Input contains non-digit characters. \n");
     }
 
-    int x;
-    while ((x = getchar()) != '\n' && x != EOF);
+   int x;
+   while ((x = getchar()) != '\n' && x != EOF);
 
-    //studentID = atoi(input_buffer);
+    studentID = atoi(input_buffer);
     printf("Successfully stored ID as an integer: %d\n", studentID);
 
     return 0;
