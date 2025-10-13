@@ -12,14 +12,14 @@
 
 int main() {
     char input_buffer[MaX_ID_LENGTh];
-    int is_valid = 1;
+    int is_valid = 1; // to check digit?
     int i;
     int studentID = 0;
 
     printf("\nEnter Student ID (digits only): "); 
     //printf("Enter Student ID: ");
     if (fgets(input_buffer, MaX_ID_LENGTh, stdin) == NULL) {
-        //printf("Error reading input. \n");
+        printf("Error reading input. \n");
         return 1;
 
     }
@@ -37,10 +37,11 @@ int main() {
         input_buffer[len - 1] = '\0';
         len = len -1;
 
-    } else {
-        is_valid = 0;
-        printf("\n Input is greater than 9 digits! Length: %d\n", len);
-    }
+    } 
+    // else {
+    //     is_valid = 0;
+    //     printf("\n Input is greater than 9 digits! Length: %d\n", len);
+    // }
 
 
 
@@ -49,25 +50,39 @@ int main() {
         printf("tested");
         if (!isdigit(current_char)) {
             is_valid = 0;
+            //len > MaX_ID_LENGTh; 
+            //printf("%d", is_valid);
             break;
-        }    
+        }
     }
 
     if (is_valid) {
-        studentID = atoi(input_buffer);
-        printf("\n Validationn passed. Stored ID: %d\n", studentID);
 
+        if(len > MaX_ID_LENGTh) {
+            printf("Your StudentID is over 9 digits.");
+            //return 1;
+
+        } else {
+            studentID = atoi(input_buffer);
+            printf("\n Validation Passed. \n");
+            printf("Stored ID : %d\n", studentID);
+            printf("\nSuccessfully stored ID as an integer : %d\n", studentID);
+        
+        } 
     } else {
-        printf("\n Validation Failed! Input contains non-digit characters. \n");
+        printf("\n Validation Failed!");
+        printf("\n Input contains non-digit characters. \n");
+        printf("\n Your StudentID is included letter... ");
+        
     }
 
-   int x;
-   while ((x = getchar()) != '\n' && x != EOF);
+//    int x;
+//    while ((x = getchar()) != '\n' && x != EOF);
 
-    studentID = atoi(input_buffer);
-    printf("Successfully stored ID as an integer: %d\n", studentID);
+//     studentID = atoi(input_buffer);
+//     printf("Successfully stored ID as an integer: %d\n", studentID);
 
-    return 0;
+    return 1;
 
 }
 
