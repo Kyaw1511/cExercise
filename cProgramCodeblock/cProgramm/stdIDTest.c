@@ -58,9 +58,10 @@ int main() {
 
     if (is_valid) {
 
-        if(len > MaX_ID_LENGTh) {
-            printf("Your StudentID is over 9 digits.");
+        if(len > MaX_ID_LENGTh - 2 ) {
+            printf("\n\nYour StudentID is over 9 digits.");
             //return 1;
+        
 
         } else {
             studentID = atoi(input_buffer);
