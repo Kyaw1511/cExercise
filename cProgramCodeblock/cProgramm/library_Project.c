@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-#include <conio.h>
+//#include <conio.h>
 #include <stdlib.h>
 #include "info.h"
 #include <ctype.h>
-#include <dos.h>
+//#include <dos.h>
 #include <time.h>
-#include <windows.h>
+//#include <windows.h>
 
 
 // Global Variables
@@ -143,12 +143,12 @@ void password() {
                 else {
                     i--;
                 }
-            } 
+            }
             else {
                 putchar('*');
-            } 
-        } 
-    
+            }
+        }
+
 
         // read file to password.txt;
         fread(&adminCheck, sizeof(adminCheck), 1, passw);
