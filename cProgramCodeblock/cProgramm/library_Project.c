@@ -10,6 +10,7 @@
 //#include <windows.h>
 #include<unistd.h> // for sleep word for linux
 #include<termios.h>
+#include <ncurses.h> // it is similar for conio.h header
 
 
 // Global Variables
@@ -117,8 +118,8 @@ void password() {
         /*
         // This is original code...
         for(i=0; i<50; i++) {
-            pass[i] = custom_getch();
-            //ch = custom_getch();
+            pass[i] = getch();
+            //ch = getch();
             if(pass[i] == 13) {
                 pass[i] = '\0'; // needed this statement;
                 break;
@@ -130,7 +131,7 @@ void password() {
         // testing we use backspace keyword I;
         // This code is modification. I've added a backspace function that activates whein the user makes a typing error.
         for (i = 0; i < 50; i++ ) {
-            pass[i] = custom_getch();
+            pass[i] = getch();
 
             if(pass[i] == 13) {
                 pass[i] = '\0';
@@ -169,7 +170,7 @@ void password() {
             fprintf(logInSession, "%s\n%s\n\n", asctime(timeinfo), adminCheck.adminName);
             fclose(passw);
             fclose(logInSession);
-            custom_getch();
+            getch();
             system("cls"); // clean the system;
             welcomeNow();
             return ;
@@ -177,7 +178,7 @@ void password() {
         } else{
             sleep(1000); //for linux, we start small s.
             printf("\n\n\t\tWrong Password Try Again ....... \n\n");
-            custom_getch();
+            getch();
             system("cls");
 
             return ; // return main() is not working;
@@ -304,7 +305,7 @@ void menu() {
         case 0: system("cls");
             printf("\t\t\tSee you soon.... \n\n\n\t\t\t Written by Kyaw Min Thein \n\n");
             printf("\t\t\t Credit to Programming MM School \n\n\n\n");
-            custom_getch();
+            getch();
             exit(0); // system exit.
             break;
 
@@ -313,7 +314,7 @@ void menu() {
             menu();
             break;
     }
-    custom_getch(); // not necessary ...
+    getch(); // not necessary ...
 
 }
 
@@ -327,7 +328,7 @@ void display() {
 // avoid for goes to last name cursor;
 void clearInputBuffer() {
     int c;
-    while ((c = custom_getchar()) != '\n' && c != EOF);
+    while ((c = getchar()) != '\n' && c != EOF);
 }
 
 // menu adding
@@ -372,7 +373,7 @@ void adding() {
             fclose(programming);
             sleep(1000);
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully .......");
-            custom_getch();
+            getch();
             system("cls");
             welcomeNow();
             //clearInputBuffer();
@@ -411,7 +412,7 @@ void adding() {
             fclose(maths);
             sleep(1000);
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully ....... ");
-            custom_getch();
+            getch();
             system("cls");
             welcomeNow();
 
@@ -452,7 +453,7 @@ void adding() {
             sleep(1000);
 
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully .......");
-            custom_getch();
+            getch();
             system("cls");
             welcomeNow();
 
@@ -492,7 +493,7 @@ void adding() {
             fclose(physic);
             sleep(1000);
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully ....... ");
-            custom_getch();
+            getch();
             system("cls");
             welcomeNow();
 
@@ -532,7 +533,7 @@ void adding() {
             sleep(1000);
 
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully .......  ");
-            custom_getch();
+            getch();
             system("cls");
             welcomeNow();
 
@@ -570,7 +571,7 @@ void adding() {
             fclose(biology);
             sleep(1000);
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully ....... ");
-            custom_getch();
+            getch();
             system("cls");
             welcomeNow();
 
@@ -608,7 +609,7 @@ void removing() {
                 printf("\t\t\t\tEnd Date (DD--MM--YY)       : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, programming);
-                custom_getch();
+                getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, programming);
@@ -641,7 +642,7 @@ void removing() {
         }
         printf("\n\n\t\t\t\tDone ....");
         printf("\n\n\t\t\t\tPress Any Key to Go Back .....  ");
-        custom_getch();
+        getch();
         system("cls");
         welcomeNow();
         menu();
@@ -661,7 +662,7 @@ void removing() {
                 printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, english);
-                custom_getch();
+                getch();
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, english);
             }
@@ -688,7 +689,7 @@ void removing() {
             }
         printf("\n\n\t\t\t\tDone...");
         printf("\n\n\t\t\t\tPress Any Key to Go Back .... ");
-        custom_getch();
+        getch();
         system("cls");
         welcomeNow();
         menu();
@@ -709,7 +710,7 @@ void removing() {
                 printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, maths);
-                custom_getch();
+                getch();
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, maths);
             }
@@ -741,7 +742,7 @@ void removing() {
         }
         printf("\n\n\t\t\t\tDone....");
         printf("\n\n\t\t\t\tPress Any Key to Go back...");
-        custom_getch();
+        getch();
         system("cls");
         welcomeNow();
         menu();
@@ -762,7 +763,7 @@ void removing() {
                 printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, physic);
-                custom_getch();
+                getch();
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, physic);
             }
@@ -794,7 +795,7 @@ void removing() {
         }
         printf("\n\n\t\t\t\tDone....");
         printf("\n\n\t\t\t\tPress Any Key to Go back...");
-        custom_getch();
+        getch();
         system("cls");
         welcomeNow();
         menu();
@@ -815,7 +816,7 @@ void removing() {
                 printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
-                custom_getch();
+                getch();
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
             }
@@ -847,7 +848,7 @@ void removing() {
         }
         printf("\n\n\t\t\t\tDone....");
         printf("\n\n\t\t\t\tPress Any Key to Go back...");
-        custom_getch();
+        getch();
         system("cls");
         welcomeNow();
         menu();
@@ -868,7 +869,7 @@ void removing() {
                 printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, biology);
-                custom_getch();
+                getch();
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, biology);
             }
@@ -900,7 +901,7 @@ void removing() {
         }
         printf("\n\n\t\t\t\tDone....");
         printf("\n\n\t\t\t\tPress Any Key to Go back...");
-        custom_getch();
+        getch();
         system("cls");
         welcomeNow();
         menu();
@@ -935,7 +936,7 @@ void checking() {
                 printf("\t\t\t\tEnd Date (DD/MM/YY) : %d/%d/%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, programming);
-                custom_getch();
+                getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, programming);
@@ -960,7 +961,7 @@ void checking() {
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, maths);
-                custom_getch();
+                getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, maths);
@@ -985,7 +986,7 @@ void checking() {
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, english);
-                custom_getch();
+                getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, english);
@@ -1010,7 +1011,7 @@ void checking() {
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, physic);
-                custom_getch();
+                getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, physic);
@@ -1034,7 +1035,7 @@ void checking() {
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
-                custom_getch();
+                getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
@@ -1059,7 +1060,7 @@ void checking() {
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
                 sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, biology);
-                custom_getch();
+                getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, biology);
@@ -1099,7 +1100,7 @@ void logIn() {
         scanf("%s", &checkName);
         printf("\t\t\t\tEnter Current Admin Password    : ");
         for (i=0; i<50; i++) {
-            checkPass[i] = custom_getch();
+            checkPass[i] = getch();
             if(checkPass[i] == 13) {
                 checkPass[i] = '\0';
                 break;
@@ -1117,14 +1118,14 @@ void logIn() {
            strcmp(adminCheck.adminpass, checkPass) ==0) {
                 printf("\n\n\t\t\t\tCorrect......");
                 printf("\n\n\t\t\t\tPress Any Key to Continue ..... ");
-                custom_getch();
+                getch();
                 system("cls");
                 welcomeNow();
                 printf("\n\n\n\t\t\t\tEnter New Admin Name      : ");
                 scanf("%s", adminCheck.adminName);
                 printf("\t\t\t\tEnter New Admin Password        : ");
                 for(i=0; i<50; i++) {
-                    adminCheck.adminpass[i] = custom_getch();
+                    adminCheck.adminpass[i] = getch();
                     if (adminCheck.adminpass[i] == 13) {
                         adminCheck.adminpass[i] = '\0';
                         break;
@@ -1136,14 +1137,14 @@ void logIn() {
                 fclose(passw);
                 printf("\n\t\t\t\tAdmin Name and Admin Password have been successfully updated ....\n");
                 printf("\n\t\t\t\tYou need to Login again .... ");
-                custom_getch();
+                getch();
                 system("cls");
                 display();
                 //menu();
                 //main();
            } else {
                 printf("\n\n\t\t\t\tIncorrect Admin Name and Admin Password, Please try again... ");
-                custom_getch();
+                getch();
                 logIn();
            }
     } else {
@@ -1163,31 +1164,6 @@ void category() {
     printf("\t\t\t\t5. Chemistry\n");
     printf("\t\t\t\t6. Biology\n");
     printf("\t\t\t\t0. Go to Back\n\n\t\t\t >>>");
-}
-
-
-// Function to replace custom_getch() on Linux
-int custom_custom_getch(void) {
-    struct termios oldt, newt;
-    int ch;
-
-    // 1. Get current terminal settings
-    tcgetattr(STDIN_FILENO, &oldt);
-    newt = oldt;
-
-    // 2. Set terminal to raw mode (turn off ICANON and ECHO)
-    // ICANON = disable waiting for Enter key
-    // ECHO = disable showing the typed character on screen
-    newt.c_lflag &= ~(ICANON | ECHO);
-    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
-
-    // 3. Read the character
-    ch = custom_getchar();
-
-    // 4. Restore original terminal settings
-    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
-
-    return ch;
 }
 
 // main function
