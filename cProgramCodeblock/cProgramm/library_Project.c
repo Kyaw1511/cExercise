@@ -8,6 +8,8 @@
 //#include <dos.h>
 #include <time.h>
 //#include <windows.h>
+#include<unistd.h> // for sleep word for linux
+#include<termios.h>
 
 
 // Global Variables
@@ -68,7 +70,7 @@ void welcoming() {
 
     // for looping Welcome char;
     for(i=0; i<strlen(welcome); i++) {
-        Sleep(70); // delay for 7 seconds to show in terminal;
+        sleep(70); // delay for 7 seconds to show in terminal;
         printf("%c", welcome[i]);
 
     }
@@ -77,7 +79,7 @@ void welcoming() {
 
     time (&rawtime);
     timeinfo = localtime( (&rawtime));
-    Sleep(130);
+    sleep(130); //for linux, we start small s.
     printf("\n\t\t\t\tCurrent Local Time and Date :: %s", asctime(timeinfo));
     printf("\n\n\n");
 
@@ -98,12 +100,12 @@ void password() {
         fclose(passw);
 
     }
-        Sleep(0);
+        sleep(0); // for linux, we start small s.
         printf("\t\t");
         char text[50] = "The system is protected by Password.";
 
         for(i=0; i<strlen(text); i++) {
-            Sleep(70);
+            sleep(70); //for linux, we start small s.
             printf("%c", text[i]);
         }
         printf("\n\n");
@@ -115,8 +117,8 @@ void password() {
         /*
         // This is original code...
         for(i=0; i<50; i++) {
-            pass[i] = getch();
-            //ch = getch();
+            pass[i] = custom_getch();
+            //ch = custom_getch();
             if(pass[i] == 13) {
                 pass[i] = '\0'; // needed this statement;
                 break;
@@ -128,7 +130,7 @@ void password() {
         // testing we use backspace keyword I;
         // This code is modification. I've added a backspace function that activates whein the user makes a typing error.
         for (i = 0; i < 50; i++ ) {
-            pass[i] = getch();
+            pass[i] = custom_getch();
 
             if(pass[i] == 13) {
                 pass[i] = '\0';
@@ -167,15 +169,15 @@ void password() {
             fprintf(logInSession, "%s\n%s\n\n", asctime(timeinfo), adminCheck.adminName);
             fclose(passw);
             fclose(logInSession);
-            getch();
+            custom_getch();
             system("cls"); // clean the system;
             welcomeNow();
             return ;
 
         } else{
-            Sleep(1000);
+            sleep(1000); //for linux, we start small s.
             printf("\n\n\t\tWrong Password Try Again ....... \n\n");
-            getch();
+            custom_getch();
             system("cls");
 
             return ; // return main() is not working;
@@ -190,7 +192,7 @@ void welcomeNow() {
     unsigned int d = 100;
     printf("\t\t\t\t\t");
     for(i=0; i<strlen(welcome); i++) {
-        Sleep(0);
+        sleep(0); //for linux, we start small s.
         printf("%c", welcome[i]);
 
     }
@@ -199,7 +201,7 @@ void welcomeNow() {
 
     time(&rawtime);
     timeinfo = localtime(&rawtime);
-    Sleep(0);
+    sleep(0); //for linux, we start small s.
     printf("\n\t\t\tCurrent local time and date :: %s", asctime(timeinfo));
     printf("\n\n\n");
 }
@@ -210,15 +212,15 @@ void menu() {
     char check;
 
     printf("\t\t\t\t1. Add Book to List \n");
-    Sleep(200);
+    sleep(200);
     printf("\t\t\t\t2. Remove Book from List\n");
-    Sleep(200);
+    sleep(200);
     printf("\t\t\t\t3. Check Book List\n");
-    Sleep(200);
+    sleep(200);
     printf("\t\t\t\t4. Change LogIn info\n");
-    Sleep(200);
+    sleep(200);
     printf("\t\t\t\t0. Exit\n\n\t\t\t\t");
-    Sleep(200);
+    sleep(200);
     scanf("%d", &selection);
 
     switch(selection) {
@@ -302,7 +304,7 @@ void menu() {
         case 0: system("cls");
             printf("\t\t\tSee you soon.... \n\n\n\t\t\t Written by Kyaw Min Thein \n\n");
             printf("\t\t\t Credit to Programming MM School \n\n\n\n");
-            getch();
+            custom_getch();
             exit(0); // system exit.
             break;
 
@@ -311,7 +313,7 @@ void menu() {
             menu();
             break;
     }
-    getch(); // not necessary ...
+    custom_getch(); // not necessary ...
 
 }
 
@@ -325,7 +327,7 @@ void display() {
 // avoid for goes to last name cursor;
 void clearInputBuffer() {
     int c;
-    while ((c = getchar()) != '\n' && c != EOF);
+    while ((c = custom_getchar()) != '\n' && c != EOF);
 }
 
 // menu adding
@@ -368,9 +370,9 @@ void adding() {
             programming = fopen("programming.txt", "a+");
             fwrite(&bookDoc, sizeof(bookDoc), 1, programming);
             fclose(programming);
-            Sleep(1000);
+            sleep(1000);
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully .......");
-            getch();
+            custom_getch();
             system("cls");
             welcomeNow();
             //clearInputBuffer();
@@ -407,9 +409,9 @@ void adding() {
             maths = fopen("maths.txt", "a+");
             fwrite(&bookDoc, sizeof(bookDoc), 1, maths);
             fclose(maths);
-            Sleep(1000);
+            sleep(1000);
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully ....... ");
-            getch();
+            custom_getch();
             system("cls");
             welcomeNow();
 
@@ -447,10 +449,10 @@ void adding() {
             english = fopen("english.txt", "a+");
             fwrite(&bookDoc, sizeof(bookDoc), 1, english);
             fclose(english);
-            Sleep(1000);
+            sleep(1000);
 
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully .......");
-            getch();
+            custom_getch();
             system("cls");
             welcomeNow();
 
@@ -488,9 +490,9 @@ void adding() {
             physic = fopen("physic.txt", "a+");
             fwrite(&bookDoc, sizeof(bookDoc), 1, physic);
             fclose(physic);
-            Sleep(1000);
+            sleep(1000);
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully ....... ");
-            getch();
+            custom_getch();
             system("cls");
             welcomeNow();
 
@@ -527,10 +529,10 @@ void adding() {
             chemistry = fopen("chemistry.txt", "a+");
             fwrite(&bookDoc, sizeof(bookDoc), 1, chemistry);
             fclose(chemistry);
-            Sleep(1000);
+            sleep(1000);
 
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully .......  ");
-            getch();
+            custom_getch();
             system("cls");
             welcomeNow();
 
@@ -566,9 +568,9 @@ void adding() {
             biology = fopen("biology.txt", "a+");
             fwrite(&bookDoc, sizeof(bookDoc), 1, biology);
             fclose(biology);
-            Sleep(1000);
+            sleep(1000);
             printf("\n\n\n\t\t\t\tThe Book info have been saved successfully ....... ");
-            getch();
+            custom_getch();
             system("cls");
             welcomeNow();
 
@@ -604,9 +606,9 @@ void removing() {
                 printf("\t\t\t\tBook Name                   : %s\n", bookDoc.bookName);
                 printf("\t\t\t\tStart Date (DD--MM--YY)     : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY)       : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, programming);
-                getch();
+                custom_getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, programming);
@@ -628,18 +630,18 @@ void removing() {
         fclose(programming);
         printf("\n\n\t\t\t\tSearching");
             for(k = 0; k < 3; k++) {
-                Sleep(700);
+                sleep(700);
                 printf(".");
             }
         printf("\n\n\t\t\t\tFound....");
         printf("\n\n\t\t\t\tDeleting");
             for(k=0; k<3; k++) {
-                Sleep(700);
+                sleep(700);
                 printf(".");
         }
         printf("\n\n\t\t\t\tDone ....");
         printf("\n\n\t\t\t\tPress Any Key to Go Back .....  ");
-        getch();
+        custom_getch();
         system("cls");
         welcomeNow();
         menu();
@@ -657,9 +659,9 @@ void removing() {
                 printf("\t\t\t\tBook Name               : %s %s\n", bookDoc.bookName);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, english);
-                getch();
+                custom_getch();
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, english);
             }
@@ -681,12 +683,12 @@ void removing() {
         fclose(english);
         printf("\n\n\t\t\t\tSearching....");
             for(k = 0; k < 3; k++) {
-                Sleep(700);
+                sleep(700);
                 printf(".");
             }
         printf("\n\n\t\t\t\tDone...");
         printf("\n\n\t\t\t\tPress Any Key to Go Back .... ");
-        getch();
+        custom_getch();
         system("cls");
         welcomeNow();
         menu();
@@ -705,9 +707,9 @@ void removing() {
                 printf("\t\t\t\tBook Name               : %s\n", bookDoc.bookName);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, maths);
-                getch();
+                custom_getch();
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, maths);
             }
@@ -728,18 +730,18 @@ void removing() {
         fclose(maths);
         printf("\n\n\t\t\t\tSearching");
         for (k=0; k<3; k++) {
-            Sleep(700);
+            sleep(700);
             printf(".");
         }
         printf("\n\n\t\t\t\tFound....");
         printf("\n\n\t\t\t\tDeleting");
         for(k=0; k<3; k++) {
-            Sleep(700);
+            sleep(700);
             printf(".");
         }
         printf("\n\n\t\t\t\tDone....");
         printf("\n\n\t\t\t\tPress Any Key to Go back...");
-        getch();
+        custom_getch();
         system("cls");
         welcomeNow();
         menu();
@@ -758,9 +760,9 @@ void removing() {
                 printf("\t\t\t\tBook Name               : %s\n", bookDoc.bookName);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, physic);
-                getch();
+                custom_getch();
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, physic);
             }
@@ -781,18 +783,18 @@ void removing() {
         fclose(physic);
         printf("\n\n\t\t\t\tSearching");
         for (k=0; k<3; k++) {
-            Sleep(700);
+            sleep(700);
             printf(".");
         }
         printf("\n\n\t\t\t\tFound....");
         printf("\n\n\t\t\t\tDeleting");
         for(k=0; k<3; k++) {
-            Sleep(700);
+            sleep(700);
             printf(".");
         }
         printf("\n\n\t\t\t\tDone....");
         printf("\n\n\t\t\t\tPress Any Key to Go back...");
-        getch();
+        custom_getch();
         system("cls");
         welcomeNow();
         menu();
@@ -811,9 +813,9 @@ void removing() {
                 printf("\t\t\t\tBook Name               : %s\n", bookDoc.bookName);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
-                getch();
+                custom_getch();
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
             }
@@ -834,18 +836,18 @@ void removing() {
         fclose(chemistry);
         printf("\n\n\t\t\t\tSearching");
         for (k=0; k<3; k++) {
-            Sleep(700);
+            sleep(700);
             printf(".");
         }
         printf("\n\n\t\t\t\tFound....");
         printf("\n\n\t\t\t\tDeleting");
         for(k=0; k<3; k++) {
-            Sleep(700);
+            sleep(700);
             printf(".");
         }
         printf("\n\n\t\t\t\tDone....");
         printf("\n\n\t\t\t\tPress Any Key to Go back...");
-        getch();
+        custom_getch();
         system("cls");
         welcomeNow();
         menu();
@@ -864,9 +866,9 @@ void removing() {
                 printf("\t\t\t\tBook Name               : %s\n", bookDoc.bookName);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", bookDoc.startDay, bookDoc.startMonth, bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY)   : %d--%d--%d\n", bookDoc.endDay, bookDoc.endMonth, bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, biology);
-                getch();
+                custom_getch();
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, biology);
             }
@@ -887,18 +889,18 @@ void removing() {
         fclose(biology);
         printf("\n\n\t\t\t\tSearching");
         for (k=0; k<3; k++) {
-            Sleep(700);
+            sleep(700);
             printf(".");
         }
         printf("\n\n\t\t\t\tFound....");
         printf("\n\n\t\t\t\tDeleting");
         for(k=0; k<3; k++) {
-            Sleep(700);
+            sleep(700);
             printf(".");
         }
         printf("\n\n\t\t\t\tDone....");
         printf("\n\n\t\t\t\tPress Any Key to Go back...");
-        getch();
+        custom_getch();
         system("cls");
         welcomeNow();
         menu();
@@ -931,9 +933,9 @@ void checking() {
                 //tested for date issue;
                 printf("\t\t\t\tStart Date (DD/MM/YY) : %d/%d/%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD/MM/YY) : %d/%d/%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, programming);
-                getch();
+                custom_getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, programming);
@@ -956,9 +958,9 @@ void checking() {
                 printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, maths);
-                getch();
+                custom_getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, maths);
@@ -981,9 +983,9 @@ void checking() {
                 printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, english);
-                getch();
+                custom_getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, english);
@@ -1006,9 +1008,9 @@ void checking() {
                 printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, physic);
-                getch();
+                custom_getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, physic);
@@ -1030,9 +1032,9 @@ void checking() {
                 printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
-                getch();
+                custom_getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, chemistry);
@@ -1055,9 +1057,9 @@ void checking() {
                 printf("\t\t\t\tStudent ID : %d\n", &bookDoc.studentId);
                 printf("\t\t\t\tStart Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.startDay, &bookDoc.startMonth, &bookDoc.startYear);
                 printf("\t\t\t\tEnd Date (DD--MM--YY) : %d--%d--%d\n", &bookDoc.endDay, &bookDoc.endMonth, &bookDoc.endYear);
-                Sleep(1000);
+                sleep(1000);
                 fread(&bookDoc, sizeof(bookDoc), 1, biology);
-                getch();
+                custom_getch();
 
             } else {
                 fread(&bookDoc, sizeof(bookDoc), 1, biology);
@@ -1097,7 +1099,7 @@ void logIn() {
         scanf("%s", &checkName);
         printf("\t\t\t\tEnter Current Admin Password    : ");
         for (i=0; i<50; i++) {
-            checkPass[i] = getch();
+            checkPass[i] = custom_getch();
             if(checkPass[i] == 13) {
                 checkPass[i] = '\0';
                 break;
@@ -1106,7 +1108,7 @@ void logIn() {
         }
         printf("\n\n\t\t\t\tLoading...");
         for (i=0; i<5; i++) {
-            Sleep(700);
+            sleep(700);
             printf(".");
         }
         passw = fopen("password.txt", "r+");
@@ -1115,14 +1117,14 @@ void logIn() {
            strcmp(adminCheck.adminpass, checkPass) ==0) {
                 printf("\n\n\t\t\t\tCorrect......");
                 printf("\n\n\t\t\t\tPress Any Key to Continue ..... ");
-                getch();
+                custom_getch();
                 system("cls");
                 welcomeNow();
                 printf("\n\n\n\t\t\t\tEnter New Admin Name      : ");
                 scanf("%s", adminCheck.adminName);
                 printf("\t\t\t\tEnter New Admin Password        : ");
                 for(i=0; i<50; i++) {
-                    adminCheck.adminpass[i] = getch();
+                    adminCheck.adminpass[i] = custom_getch();
                     if (adminCheck.adminpass[i] == 13) {
                         adminCheck.adminpass[i] = '\0';
                         break;
@@ -1134,14 +1136,14 @@ void logIn() {
                 fclose(passw);
                 printf("\n\t\t\t\tAdmin Name and Admin Password have been successfully updated ....\n");
                 printf("\n\t\t\t\tYou need to Login again .... ");
-                getch();
+                custom_getch();
                 system("cls");
                 display();
                 //menu();
                 //main();
            } else {
                 printf("\n\n\t\t\t\tIncorrect Admin Name and Admin Password, Please try again... ");
-                getch();
+                custom_getch();
                 logIn();
            }
     } else {
@@ -1163,6 +1165,30 @@ void category() {
     printf("\t\t\t\t0. Go to Back\n\n\t\t\t >>>");
 }
 
+
+// Function to replace custom_getch() on Linux
+int custom_custom_getch(void) {
+    struct termios oldt, newt;
+    int ch;
+
+    // 1. Get current terminal settings
+    tcgetattr(STDIN_FILENO, &oldt);
+    newt = oldt;
+
+    // 2. Set terminal to raw mode (turn off ICANON and ECHO)
+    // ICANON = disable waiting for Enter key
+    // ECHO = disable showing the typed character on screen
+    newt.c_lflag &= ~(ICANON | ECHO);
+    tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+
+    // 3. Read the character
+    ch = custom_getchar();
+
+    // 4. Restore original terminal settings
+    tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+
+    return ch;
+}
 
 // main function
 int main() {
