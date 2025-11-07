@@ -208,6 +208,11 @@ void welcomeNow() {
 
 // menu function
 void menu() {
+    // for linux
+    initscr(); // start Ncurses mode
+    cbreak(); // line buffering disabled
+    noecho(); // Don't echo input
+
     int selection;
     char check;
 
@@ -1179,6 +1184,8 @@ int main() {
 
     //instead using for main function
     display();
+
+    getchar();
 
     return 0;
 
