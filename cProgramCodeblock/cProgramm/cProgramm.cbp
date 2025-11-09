@@ -37,9 +37,7 @@
 			<Add library="tinfo" />
 		</Linker>
 		<Unit filename="info.h" />
-		<Unit filename="library_Project.c">
-			<Option compilerVar="CC" />
-		</Unit>
+		<Unit filename="library_Project.exe" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
