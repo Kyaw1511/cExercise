@@ -4,13 +4,11 @@
 #include <stdlib.h>
 #include "info.h"
 #include <ctype.h>
-//#include <dos.h>
 #include <time.h>
-//#include <windows.h>
 #include<unistd.h> // for sleep word for linux
 #include<termios.h>
 #include <ncurses.h> // it is similar for conio.h header
-
+#include <dirent.h>
 
 // Global Variables
 FILE*passw;

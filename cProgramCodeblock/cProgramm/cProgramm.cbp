@@ -35,9 +35,11 @@
 		<Linker>
 			<Add library="ncursesw" />
 			<Add library="tinfo" />
+			<Add library="ncurses" />
 		</Linker>
-		<Unit filename="info.h" />
-		<Unit filename="library_Project.exe" />
+		<Unit filename="library_Project.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
